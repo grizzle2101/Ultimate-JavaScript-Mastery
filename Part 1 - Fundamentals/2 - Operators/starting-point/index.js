@@ -28,3 +28,19 @@ x += 5; //addition assignment operator. Shorthand for x = x + 5;
 x *= 3; //multiplication assignment operator
 
 //every arthmetic operator, also has an assignment operator version.
+
+
+
+//Lecture 4 - Comparison Operator:
+let x = 1;
+
+//relational operators
+console.log(x > 0); //result of comparison is true.
+console.log(x >= 0);
+console.log(x < 0); //false
+console.log(x <= 0);
+
+
+//equality operator
+console.log(x === 1);
+console.log(x !== 1);
