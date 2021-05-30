@@ -97,3 +97,18 @@ function greet(fistName, lastName) { //paramterised function
 }
 //note - name is not accessible outside the function.
 greet('Mosh','Hammedani'); //function call w Argument.
+
+
+//Lecture 8 - Types of Functions:
+
+//performing a Task
+function greet(fistName, lastName) {
+    console.log('Hello ' +  fistName , lastName);
+}
+
+// Calculate a Value
+function square(number){
+    return number * number
+}
+
+console.log(square(2));
