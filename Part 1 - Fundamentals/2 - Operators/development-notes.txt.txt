@@ -1,5 +1,5 @@
 
-Lecture 1 - Operators:
+Lecture 1 - JavaScript operators:
 We use operators in conjunction with variables to create expression, and we use these
 expressions to implement logic and alghoritms.
 
@@ -11,3 +11,11 @@ Types of Operators:
 -comparison
 -logical
 -bitwise
+
+
+Lecture 2 - arthmetic operators:
+
+note:
+When incrementing or decrementing values, pay close attention to where they're placed.
+x++ means increment AFTER the value is displayed.
+++x means increment BEFORE displaying the value.
