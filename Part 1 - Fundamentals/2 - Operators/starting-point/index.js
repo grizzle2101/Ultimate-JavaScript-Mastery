@@ -18,3 +18,13 @@ console.log(x ** y); //NEW - exponentiation operator (to the power of)
 //Decrement operator
 console.log(x);
 console.log(--x);
+
+
+//Lecture 3 - Assignment Operators
+let x = 10; //basic assignment operator
+x++; // x = x + 1, this is also an assignment operator.
+
+x += 5; //addition assignment operator. Shorthand for x = x + 5;
+x *= 3; //multiplication assignment operator
+
+//every arthmetic operator, also has an assignment operator version.
