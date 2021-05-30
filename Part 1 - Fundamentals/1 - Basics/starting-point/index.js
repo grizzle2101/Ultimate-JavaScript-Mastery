@@ -47,3 +47,24 @@ let testName = 'Test'
 console.log(typeof(testName));
 testName = 123;
 console.log(typeof(testName));
+
+
+
+//Lecture 5 - Objects:
+//Reference Types - Object, Array & Functions.
+
+// object demo
+let person = {
+    name: 'Mosh',
+    age: 30
+} // object literal
+
+console.log(person);
+
+//working with Objects: dot notation
+person.name = 'John'
+console.log(person.name);
+
+//bracket notation - provide target property
+person['name'] = 'Bob'
+console.log(person['name']);

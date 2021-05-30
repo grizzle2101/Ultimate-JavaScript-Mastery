@@ -1,0 +1,12 @@
+As this is really just a recap, I am not going to write expansive notes, maybe just
+note things I didn't know to fill gaps in my knowledge.
+
+
+DOT notation vs Bracket Notation:
+person.name
+person['name']
+
+Which to use?
+In general DOT notation provides a simple and clean way to display object properties.
+However there are some use cases for bracket notation, like we don't know the values
+of person until realtime.
