@@ -19,3 +19,18 @@ note:
 When incrementing or decrementing values, pay close attention to where they're placed.
 x++ means increment AFTER the value is displayed.
 ++x means increment BEFORE displaying the value.
+
+Lecture 5 - Equality Operator:
+
+the == VS === debate:
+Strict V loose equality.
+console.log(1 === '1'); false
+console.log(1 == '1'); true
+
+The main point being with loose equality, JavaScript automatically converts both
+values to the type of the first value. So 1 to '1' both convert to 1, and the comparison works.
+However some edge cases can result like
+true == 1, returns true. We convert the 1 a boolean with the value of true, which obviously
+makes no sense to us, 1 and true and NOT the same.
+
+*Strict Equality is MUCH more precise and accurate*
