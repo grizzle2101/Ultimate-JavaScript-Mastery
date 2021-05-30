@@ -68,3 +68,24 @@ console.log(person.name);
 //bracket notation - provide target property
 person['name'] = 'Bob'
 console.log(person['name']);
+
+
+
+//Lecture 6 - Arrays:
+let selectedColors = ['red', 'blue'];
+console.log(selectedColors);
+
+console.log(selectedColors[0]); //accessing using index
+
+//length of array, as well as its objects are dynamic
+selectedColors[2] = 'green'; //dynamic length
+console.log(selectedColors);
+
+selectedColors[3] = 123; //dynamic types
+console.log(selectedColors);
+
+//can also use bracket notation on arrays, as arrays are also objects.
+console.log(typeof(selectedColors)); // shows its an object
+
+//array as properties like length, and methods built into the array object.
+console.log(selectedColors.length);
