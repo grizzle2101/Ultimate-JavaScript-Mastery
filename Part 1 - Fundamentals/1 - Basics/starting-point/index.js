@@ -25,3 +25,14 @@ interestRate = 1;
 console.log(interestRate);
 
 //note - if you know a value should NOT change, use CONST over LET.
+
+
+//Lecture 3 - Primitive Types
+//primitive(value types) v reference types
+//strings, numbers, booleans, undefined & null are all primitive
+
+let name = 'Mosh'; // string literal
+let age = 30; // number literal
+let isApproved = true // boolean literal
+let firstName; // undefined
+let lastName = null; //null
