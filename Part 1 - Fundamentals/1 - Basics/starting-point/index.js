@@ -89,3 +89,11 @@ console.log(typeof(selectedColors)); // shows its an object
 
 //array as properties like length, and methods built into the array object.
 console.log(selectedColors.length);
+
+
+//Lecture - 7 - Functions:
+function greet(fistName, lastName) { //paramterised function
+    console.log('Hello ' +  fistName , lastName); //function body
+}
+//note - name is not accessible outside the function.
+greet('Mosh','Hammedani'); //function call w Argument.

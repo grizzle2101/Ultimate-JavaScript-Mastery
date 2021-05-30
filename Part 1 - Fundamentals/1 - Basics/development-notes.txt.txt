@@ -10,3 +10,11 @@ Which to use?
 In general DOT notation provides a simple and clean way to display object properties.
 However there are some use cases for bracket notation, like we don't know the values
 of person until realtime.
+
+
+Parameter V argument:
+-Parameter is the name of the object being sent into function
+function greeting(name){}
+
+an argument is the variable being passed when the function is called eg
+greeting('argument')
