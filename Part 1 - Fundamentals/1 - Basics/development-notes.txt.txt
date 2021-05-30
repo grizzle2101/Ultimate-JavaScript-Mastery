@@ -1,4 +1,3 @@
 
-Running this Code:
-browser - Open with Liver Sever
-node - node index.js
+
+Variables:
