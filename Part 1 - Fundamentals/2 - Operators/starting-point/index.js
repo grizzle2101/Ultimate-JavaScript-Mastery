@@ -101,3 +101,39 @@ let applicationRefused  = !eligibleForLoan; //NOT operator
 
 console.log('Eligible:', eligibleForLoan);
 console.log('Refused:', applicationRefused);
+
+
+
+//Lecture 8 - Logical Operaors with Non-booleans:
+//In JavaScript we have the ability to use logical operators on Non-boolean values.
+
+console.log(false || true); //true
+console.log(false || 'Mosh'); //returns Mosh
+console.log(false || 1); //returns 1
+//Logical operators do NOT always return true/false
+//But instead tries to intrept Falsey or Truthy
+
+
+//Falsey
+//undefined
+// null
+// 0
+// false
+// ''
+// Nan - not a Number.
+
+//Anything that is not falsy IS truthy
+
+console.log(false || 'Mosh') //Mosh != Falsey, therefor this operation is truthy.
+console.log(false || 1 || 2); // As soon as we find truthy value, return it.
+
+//pick a colour, or defaults to normal.
+let userColor = undefined;
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+
+console.log(currentColor);
+
+userColor = 'red';
+currentColor = userColor || defaultColor;
+console.log(currentColor);

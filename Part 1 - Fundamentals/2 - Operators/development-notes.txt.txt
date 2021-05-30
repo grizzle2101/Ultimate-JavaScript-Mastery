@@ -34,3 +34,44 @@ true == 1, returns true. We convert the 1 a boolean with the value of true, whic
 makes no sense to us, 1 and true and NOT the same.
 
 *Strict Equality is MUCH more precise and accurate*
+
+
+Lecture 8 - Logical Operators with Non-booleans:
+Consider the following scenarios...
+
+console.log(false || true); //true
+console.log(false || 'Mosh'); //returns Mosh
+console.log(false || 1); //returns 1
+
+In summary Logical operators do NOT always return true/false.
+The JavaScript engine tries to interpret our operands as 'truthy' or 'falsey'.
+
+//Falsey
+Falsey is like false but usually appears as undefined, null, 0, false, ''
+or Nan - not a Number.
+Anything that is not Falsey is truthy.
+
+Truthy Scenario:
+with the || operator we know one condition must be true, the first is false so the engine
+moved to the operate on either True or Truthy, in this case its truthy so we return
+the string 'Mosh'
+console.log(false || 'Mosh');
+
+
+Short Circuit Scenaio:
+Consider this scenrio where we have 3 values, the first is false the second is truthy.
+The engine returns 1, even tho one of these conditions should evaludate to true.
+In realty the engine stops at the first truthy value, and doesn't take into account
+anything afterwards.
+console.log(false || 1 || 2); // As soon as we find truthy value, return it.
+
+When to use this?
+There are scenarios like say we want the user the select a color. But if one is not
+selected, we default to blue.
+let userColor = undefined;
+let defaultColor = 'blue';
+let currentColor = userColor || defaultColor;
+
+console.log(currentColor); //value is blue
+
+IE. undefined/falsey || 'blue' returns blue.
