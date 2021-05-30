@@ -57,3 +57,13 @@ console.log(1 === '1');
 console.log(1 == '1');
 
 console.log(true == '1');
+
+
+
+//Lecture 6 - Ternary Opertor:
+//If a customer has over 100 points, we want to classify him as gold, else hes silver.
+//We can simplify all this logic into a single statement, using the ternary operator.
+let points = 90;
+let type = points > 100? 'Gold': 'Silver';
+
+console.log(type);
