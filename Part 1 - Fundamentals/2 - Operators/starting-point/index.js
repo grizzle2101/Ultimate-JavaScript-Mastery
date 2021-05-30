@@ -67,3 +67,37 @@ let points = 90;
 let type = points > 100? 'Gold': 'Silver';
 
 console.log(type);
+
+
+//Lecture 7 - Logical Operators:
+//3 Types of logical operators are AND, OR, NOT.
+
+//Logical AND (&&)
+//returns true if BOTH operands are true.
+console.log(true && true); //true
+console.log(false && true); //false
+
+//real example
+let highIncome = true;
+let goodCredit = true;
+let eligibleForLoan = highIncome && goodCredit;
+console.log(eligibleForLoan);
+
+//Logical OR(||)
+//Returns true if either of the operarands are TRUE.
+
+console.log(highIncome || goodCredit); //true
+
+goodCredit = false;
+console.log(highIncome || goodCredit); //also true (only 1 operand has to be true)
+
+
+// NOT operator (!)
+// Returns 
+highIncome = false;
+goodCredit = false
+eligibleForLoan = highIncome && goodCredit; 
+let applicationRefused  = !eligibleForLoan; //NOT operator
+
+console.log('Eligible:', eligibleForLoan);
+console.log('Refused:', applicationRefused);
