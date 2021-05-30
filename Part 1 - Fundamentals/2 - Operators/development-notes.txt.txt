@@ -1,0 +1,13 @@
+
+Lecture 1 - Operators:
+We use operators in conjunction with variables to create expression, and we use these
+expressions to implement logic and alghoritms.
+
+operators variables > expressions > alghoritms
+
+Types of Operators:
+-arthmetic
+-assignment
+-comparison
+-logical
+-bitwise
