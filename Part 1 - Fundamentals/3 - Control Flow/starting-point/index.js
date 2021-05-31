@@ -112,3 +112,21 @@ for (const item of colors) {
 
 //Use FOR IN to iterate over properties of an object.
 //Use FOR OF to iterate over an array of items.
+
+
+//Lecture 9 - Break & Continue:
+//With all the loops we've looked so far, so very import keywords to understand.
+
+i = 0;
+while(i < 10) {
+  console.log(i);
+  //if(i === 5) break;
+  if(i % 2 === 0){
+    i++;
+    continue;
+  }
+  i++;
+}
+
+//break - jumps out of the loop
+//continue - jump to the next iteration of the loop
