@@ -142,3 +142,13 @@ function calculateMax(a, b) {
 
 let max = calculateMax(9, 6)
 console.log('max - ', max);
+
+
+//Excersie 2 - Landscape or Portrait:
+//Width greater than heigh = landscape
+
+function isLandscape(width, height) {
+  return width > height;
+}
+
+console.log(isLandscape(1080, 900));
