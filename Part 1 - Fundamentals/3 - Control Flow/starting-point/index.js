@@ -61,3 +61,13 @@ while (i < 5) {
   if (i % 2 !== 0) console.log("while odd - ", i);
   i++;
 }
+
+//Lecture 5 - DoWhile:
+i = 9;
+do {
+  if (i % 2 !== 0) console.log("do while odd - ", i);
+  i++;
+} while (i < 5);
+
+//DoWhile are ALWAYS executed, at least once.
+//Conditions are evaluated after its first execution.
