@@ -165,3 +165,18 @@ console.log(test); //14
 
 test = (2 + 3) * 4;
 console.log(test); //20
+
+//Lecture 12 - Swapping Variables:
+let a = "red";
+let b = "blue";
+
+console.log(a);
+console.log(b);
+
+//code to swap variables
+c = a;
+a = b;
+b = c;
+
+console.log(a);
+console.log(b);
