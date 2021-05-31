@@ -152,3 +152,31 @@ function isLandscape(width, height) {
 }
 
 console.log(isLandscape(1080, 900));
+
+
+//Excercise 3 - FizzBuzz
+//divisible by 3 Fizz
+//divisible by 5, buzz
+//divisible by both 3 & 5, fizzbuzz
+
+
+function fizzBuzz(input) {
+
+  if(typeof input !== 'number') return NaN; //JavaScript best practice
+
+  if ((input % 3 === 0) && (input % 5 === 0)) return 'FizzBuzz';
+  else if(input % 3 === 0) return 'Fizz';
+  else if(input % 5 === 0) return 'Buzz';
+  return input;
+}
+
+//note - make sure to order most specific condition first, and most generic at the bottom.
+//note - use NAN when calculations go wrong, eg like passing strings to fizzbuzz.
+
+i = 1;
+while(i <= 15) {
+  console.log(fizzBuzz(i));
+  i++;
+}
+
+console.log(fizzBuzz('WONK'));
