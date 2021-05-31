@@ -31,3 +31,24 @@ else console.log("unknown user!");
 
 //Which is better? In this case IF else, was less code, and its a little cleaner.
 //But at the end of the day its up to personal preference.
+
+//Lecture 3 - For:
+//Loops - For, While, DoWhile, ForIn & ForOf
+//They all do the same thing, but in subtly different ways.
+
+//1 - initial expression, 2 - condition, 3 - increment expression
+//let i = 0;                    i < 5               i++
+for (let i = 1; i <= 5; i++) {
+  console.log("Hello World - ", i);
+  //display odd numbers from 1 to 5.
+  if (i % 2 !== 0) {
+    console.log("1 odd - ", i);
+  }
+}
+
+//same in reverse order
+for (let i = 5; i >= 1; i--) {
+  if (i % 2 !== 0) {
+    console.log("2 odd - ", i);
+  }
+}
