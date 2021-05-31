@@ -95,3 +95,14 @@ console.log(1 | 2); //bitwise OR
 This will evalate 1 & 2, and return 1 where its found.
 the returned result is
 3 = 00000011
+
+
+Lecture 10 - Operator Precedence:
+When working with complex operations, its important to take into consideration
+the operator precedence.
+
+BEMDAS - Brackets, Exponents, Multiplication, Division, Addition & Subtraction.
+let test = 2 + 3 * 4;
+console.log(test); //14
+
+Another way to enforce the calculation you want is to use brackets

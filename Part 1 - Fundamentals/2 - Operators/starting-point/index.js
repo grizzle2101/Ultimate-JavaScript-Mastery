@@ -157,3 +157,11 @@ console.log("Message - ", message);
 //Take Home:
 //with bitwise OR, we can add permissions.
 //with bitwide AND, we can check to see permissions.
+
+//Lecture 10 - Operator Precedence:
+let test = 2 + 3 * 4; //BEMDAS
+
+console.log(test); //14
+
+test = (2 + 3) * 4;
+console.log(test); //20
