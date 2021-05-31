@@ -52,3 +52,12 @@ for (let i = 5; i >= 1; i--) {
     console.log("2 odd - ", i);
   }
 }
+
+//Lecture 4 - While:
+//The main difference here, is we have to declare variables OUTSIDE the loop.
+//WHILE loops cannot perform multiple declarations in their loop expression.
+let i = 0;
+while (i < 5) {
+  if (i % 2 !== 0) console.log("while odd - ", i);
+  i++;
+}
