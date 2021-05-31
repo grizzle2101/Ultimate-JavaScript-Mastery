@@ -75,3 +75,23 @@ let currentColor = userColor || defaultColor;
 console.log(currentColor); //value is blue
 
 IE. undefined/falsey || 'blue' returns blue.
+
+
+
+Lecture 9 - Bitwise Operators:
+The discussion about bitwise operators can tend to get overly technical, and we don't
+want to spend more time discussing than actually using these operators.
+They do have their use, but it is limited.
+
+We as humans store numbers in the decimal system, ie 1, 2 & 3. But computers store
+as bits aka 1s and 0s.
+1 = 00000001 - 8 bits, 1 byte
+2 = 00000010
+There is some math that goes into calculating this, but there is always decimal to binary
+calculators online.
+
+Bitwise operators work on the individual bits of a number.
+console.log(1 | 2); //bitwise OR
+This will evalate 1 & 2, and return 1 where its found.
+the returned result is
+3 = 00000011
