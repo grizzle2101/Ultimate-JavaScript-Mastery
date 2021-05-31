@@ -71,3 +71,12 @@ do {
 
 //DoWhile are ALWAYS executed, at least once.
 //Conditions are evaluated after its first execution.
+
+//Lecture 6 - Infinite Loops:
+i = 0;
+
+while (i < 0) {
+  console.log(i);
+  i++; //comment this for infinite loop
+}
+//every type of loop can fall into a infinite loop which will crash your browser.
