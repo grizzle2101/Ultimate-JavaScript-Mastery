@@ -130,3 +130,15 @@ while(i < 10) {
 
 //break - jumps out of the loop
 //continue - jump to the next iteration of the loop
+
+
+//Excercise 1 - Max of Two Numbers:
+function calculateMax(a, b) {
+  //if(a > b) return a;
+  //return b;
+
+  return a > b ? a : b; //ternary operator more efficent.
+}
+
+let max = calculateMax(9, 6)
+console.log('max - ', max);
