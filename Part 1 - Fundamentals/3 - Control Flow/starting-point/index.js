@@ -80,3 +80,25 @@ while (i < 0) {
   i++; //comment this for infinite loop
 }
 //every type of loop can fall into a infinite loop which will crash your browser.
+
+
+//Lecture 7 - For In:
+//We use the ForIn loop to iterate over the properties of an object.
+const person = {
+  name: 'Mosh',
+  age: 30
+};
+
+for(let key in person){
+  console.log(key, person[key]); //bracket notation
+}
+
+//note - remember we use bracket notation when we do not know ahead of time, 
+//the properties we're likely to deal with.
+
+const colors = ['red', 'green', 'blue'];
+
+for (let index in colors) 
+  console.log(index, colors[index]);
+
+//Can use this to iterate over loops, but since ES6, there is a better way to do this.
