@@ -102,3 +102,13 @@ for (let index in colors)
   console.log(index, colors[index]);
 
 //Can use this to iterate over loops, but since ES6, there is a better way to do this.
+
+
+//Lecture 8 - For Of:
+for (const item of colors) {
+  console.log(item);
+}
+//benefits: NO index, and we dont need index to retrieve a value.
+
+//Use FOR IN to iterate over properties of an object.
+//Use FOR OF to iterate over an array of items.
