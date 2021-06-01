@@ -352,3 +352,33 @@ function calculateGrades(array) {
   else if (average < 90) return "B";
   return "A";
 }
+
+//Excercise 10 - Stars:
+
+showStars(15);
+
+/* My Version
+function showStars(rows) {
+  for (let i = 1; i <= rows; i++) {
+    console.log(getStars(i));
+  }
+}
+
+function getStars(row) {
+  let stars = [];
+  for (let i = 0; i < row; i++) {
+    stars[i] = "*";
+  }
+  return stars.join("");
+}
+*/
+
+function showStars(rows) {
+  for (let row = 1; row <= rows; row++) {
+    let stars = "";
+    for (let i = 0; i < row; i++) {
+      stars += "*";
+    }
+    console.log(stars);
+  }
+}
