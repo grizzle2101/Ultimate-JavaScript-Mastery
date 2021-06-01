@@ -234,3 +234,30 @@ function showNumbers(limit) {
     console.log(message);
   }
 }
+
+//Excercise 6 - Count Truthy:
+//Iterate over an array, and count Truthy elements.
+
+function countTruthy(array) {
+  let count = 0;
+
+  for (const i of array) {
+    //only works for numbers
+
+    /* my solution
+    if ((i || "2") === i) {
+      console.log(i, "Item is Truthy!");
+      count++;
+    }
+    */
+    if (i) count++; //more efficent
+  }
+
+  console.log("count - ", count);
+}
+
+countTruthy([0, 1, 2, 3, ""]);
+
+//truthy values are non boolean values. JS engine tries to interpret as true/false.
+//Falsey values - Undefined, null, '', false, 0, NaN
+//test for Truthy if(value)
