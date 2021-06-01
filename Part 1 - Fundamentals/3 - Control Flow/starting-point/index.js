@@ -298,3 +298,57 @@ function sum(limit) {
 }
 
 //note - lines that are highly related, should be kept togther.
+
+//Excercise 9 - Grades:
+const marks = [80, 80, 50];
+
+//Average out
+// 1 - 59 = F
+//60 - 69 = D
+//70 - 79 = C
+//80 - 89 = B
+//90 - 100 = A
+
+console.log(calculateGrades(marks));
+
+/*
+function calculateGrades(marks) {
+  let averageGrade = 0;
+
+  //sum grades
+  for (const mark of marks) {
+    averageGrade += mark;
+  }
+
+  //average grades
+  averageGrade = averageGrade / marks.length;
+  console.log("Average Grade - ", averageGrade);
+
+  //logic for returning Grade
+  if (averageGrade < 60) console.log("F");
+  else if (averageGrade < 70) console.log("D");
+  else if (averageGrade < 80) console.log("C");
+  else if (averageGrade < 90) console.log("B");
+  else if (averageGrade < 100) console.log("A");
+  else console.log(NaN);
+}
+*/
+
+//refactored for single responsibility
+function calculateAverage(array) {
+  let sum = 0;
+
+  for (const value of array) {
+    sum += value;
+  }
+  return sum / array.length;
+}
+
+function calculateGrades(array) {
+  const average = calculateAverage(array);
+  if (average < 60) return "F";
+  else if (average < 70) return "D";
+  else if (average < 80) return "C";
+  else if (average < 90) return "B";
+  return "A";
+}
