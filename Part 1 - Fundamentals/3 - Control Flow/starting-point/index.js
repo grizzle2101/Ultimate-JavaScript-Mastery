@@ -215,3 +215,22 @@ function checkTheSpeed(speed) {
 checkTheSpeed(75);
 
 //note - Moshs solution had slightly tidyer math,
+
+//Excercise 5 - Even & Odd Numbers:
+showNumbers(10);
+
+function showNumbers(limit) {
+  for (let i = 1; i <= limit; i++) {
+    /*
+    if (i % 2 === 0) {
+      console.log(i, " - Even");
+    } else {
+      console.log(i, "- Odd");
+    }
+    */
+
+    //2 liner
+    const message = i % 2 === 0 ? "Even" : "Odd";
+    console.log(message);
+  }
+}
