@@ -261,3 +261,22 @@ countTruthy([0, 1, 2, 3, ""]);
 //truthy values are non boolean values. JS engine tries to interpret as true/false.
 //Falsey values - Undefined, null, '', false, 0, NaN
 //test for Truthy if(value)
+
+//Excercise 7 - String Properties:
+//Display the properties that contain a string value...
+const movie = {
+  title: "a",
+  year: 2018,
+  rating: 4.5,
+  director: "b",
+};
+
+showProperties(movie);
+
+function showProperties(inputValue) {
+  for (const key in inputValue) {
+    if (typeof inputValue[key] === "string") console.log(key, inputValue[key]);
+  }
+}
+
+//note - use FOR IN to get the properties & values from an object.
