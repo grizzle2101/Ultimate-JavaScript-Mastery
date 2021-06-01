@@ -280,3 +280,21 @@ function showProperties(inputValue) {
 }
 
 //note - use FOR IN to get the properties & values from an object.
+
+//Excercise 8 - Sum of Multiples of 3 & 5:
+//iterate over a limit, sum the occurences of multiples of 3 & 5.
+//multiples of 3 - 3, 6, 9
+//multiples of 5 - 5, 10
+
+console.log(sum(10));
+
+function sum(limit) {
+  let sum = 0;
+
+  for (let i = 0; i <= limit; i++) {
+    if (i % 3 === 0 || i % 5 === 0) sum += i;
+  }
+  return sum;
+}
+
+//note - lines that are highly related, should be kept togther.
