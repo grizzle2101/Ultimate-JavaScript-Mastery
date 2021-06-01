@@ -81,28 +81,25 @@ while (i < 0) {
 }
 //every type of loop can fall into a infinite loop which will crash your browser.
 
-
 //Lecture 7 - For In:
 //We use the ForIn loop to iterate over the properties of an object.
 const person = {
-  name: 'Mosh',
-  age: 30
+  name: "Mosh",
+  age: 30,
 };
 
-for(let key in person){
+for (let key in person) {
   console.log(key, person[key]); //bracket notation
 }
 
-//note - remember we use bracket notation when we do not know ahead of time, 
+//note - remember we use bracket notation when we do not know ahead of time,
 //the properties we're likely to deal with.
 
-const colors = ['red', 'green', 'blue'];
+const colors = ["red", "green", "blue"];
 
-for (let index in colors) 
-  console.log(index, colors[index]);
+for (let index in colors) console.log(index, colors[index]);
 
 //Can use this to iterate over loops, but since ES6, there is a better way to do this.
-
 
 //Lecture 8 - For Of:
 for (const item of colors) {
@@ -113,15 +110,14 @@ for (const item of colors) {
 //Use FOR IN to iterate over properties of an object.
 //Use FOR OF to iterate over an array of items.
 
-
 //Lecture 9 - Break & Continue:
 //With all the loops we've looked so far, so very import keywords to understand.
 
 i = 0;
-while(i < 10) {
+while (i < 10) {
   console.log(i);
   //if(i === 5) break;
-  if(i % 2 === 0){
+  if (i % 2 === 0) {
     i++;
     continue;
   }
@@ -131,7 +127,6 @@ while(i < 10) {
 //break - jumps out of the loop
 //continue - jump to the next iteration of the loop
 
-
 //Excercise 1 - Max of Two Numbers:
 function calculateMax(a, b) {
   //if(a > b) return a;
@@ -140,9 +135,8 @@ function calculateMax(a, b) {
   return a > b ? a : b; //ternary operator more efficent.
 }
 
-let max = calculateMax(9, 6)
-console.log('max - ', max);
-
+let max = calculateMax(9, 6);
+console.log("max - ", max);
 
 //Excersie 2 - Landscape or Portrait:
 //Width greater than heigh = landscape
@@ -153,20 +147,17 @@ function isLandscape(width, height) {
 
 console.log(isLandscape(1080, 900));
 
-
 //Excercise 3 - FizzBuzz
 //divisible by 3 Fizz
 //divisible by 5, buzz
 //divisible by both 3 & 5, fizzbuzz
 
-
 function fizzBuzz(input) {
+  if (typeof input !== "number") return NaN; //JavaScript best practice
 
-  if(typeof input !== 'number') return NaN; //JavaScript best practice
-
-  if ((input % 3 === 0) && (input % 5 === 0)) return 'FizzBuzz';
-  else if(input % 3 === 0) return 'Fizz';
-  else if(input % 5 === 0) return 'Buzz';
+  if (input % 3 === 0 && input % 5 === 0) return "FizzBuzz";
+  else if (input % 3 === 0) return "Fizz";
+  else if (input % 5 === 0) return "Buzz";
   return input;
 }
 
@@ -174,9 +165,53 @@ function fizzBuzz(input) {
 //note - use NAN when calculations go wrong, eg like passing strings to fizzbuzz.
 
 i = 1;
-while(i <= 15) {
+while (i <= 15) {
   console.log(fizzBuzz(i));
   i++;
 }
 
-console.log(fizzBuzz('WONK'));
+console.log(fizzBuzz("WONK"));
+
+//Excercise 4 - Dermit Points:
+//Speed limit = 70
+//At or below 70 is OK
+//for every 5 above the speed limit, 1 point.
+//more than 12, points, license is suspended
+
+//My Solution
+function checkSpeed(speed) {
+  const speedLimit = 70;
+  const wiggleRoom = 5;
+  let points = 0;
+  if (speed > speedLimit) {
+    let speedDiff = speed - (speedLimit + wiggleRoom);
+    //iterate over diff in increments of 5, for each iteration add 1 point.
+    for (let i = 0; i < speedDiff; i += 5) {
+      points++;
+    }
+  }
+  return points > 12 ? "License Suspended" : points;
+}
+
+console.log("License Check - ", checkSpeed(175));
+
+//Mosh Version:
+function checkTheSpeed(speed) {
+  const speedLimit = 70;
+  const kmPerPoint = 5;
+  if (speed <= speedLimit + kmPerPoint) {
+    console.log("Ok");
+  } else {
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12) {
+      console.log("License Suspended");
+    } else {
+      console.log("Points - ", points);
+    }
+  }
+}
+
+//note - Use CONST to make sure the value cant be changed after assignment. e.g. with Points.
+checkTheSpeed(75);
+
+//note - Moshs solution had slightly tidyer math,
