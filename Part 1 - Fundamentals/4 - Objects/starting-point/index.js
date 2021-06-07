@@ -92,8 +92,34 @@ function Circle(radius) {
 //note - this references an empty object
 
 //new operator, creates empty object, set this to point to object, finally return set object.
-const circle = new Circle(1);
+const circle3 = new Circle(1);
 const c3 = createCircle(2);
 
 //Whats better? Constructor pattern more familar to OO programmers C#, Java etc.
 //Some purists prefer factory functions, but just pick one and stick with it.
+
+//Lecture 4 - Dynamic Nature of Objects:
+//One different thing about JavaScript, objects are dynamic.
+//That means we can add properties & methods to them at a moments notice.
+
+const circleee = {
+  radius: 1,
+};
+
+//add properties
+circleee.color = "yellow";
+circleee.draw = function () {
+  console.log("WEEE");
+};
+
+console.log(circleee);
+
+//remove properties
+delete circleee.color;
+delete circleee.draw;
+
+console.log(circleee);
+
+//Wait, this object is const, why can we change it?
+//Const is javascript means we cant REASSIGN, not that we cant modify it.
+//const circle = {}; cirlce = 2; //will throw errors.
