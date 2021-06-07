@@ -382,3 +382,29 @@ function showStars(rows) {
     console.log(stars);
   }
 }
+
+//Excercise 11 - Prime Numbers:
+//Show all prime numbers up to a limit.
+//Composite numbers will have many numbers that divide into it evenly eg 12
+//EG - 12 - 1, 2, 4, 6, 12
+//prime number has only 2 factors, 1 and itself
+//13 - 1, 13.
+
+showPrimes(20);
+
+function showPrimes(limit) {
+  console.log("limit - ", limit);
+  for (let number = 2; number < limit; number++) {
+    if (isPrime(number)) console.log(number);
+  }
+}
+
+function isPrime(number) {
+  for (let factor = 2; factor < number; factor++) {
+    if (number % factor === 0) return false;
+  }
+  return true;
+}
+
+//note - if you have nested loops, probably a good indicator you should break up
+//the functions.
