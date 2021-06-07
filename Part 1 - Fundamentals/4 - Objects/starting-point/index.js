@@ -77,3 +77,23 @@ c1.draw();
 const c2 = createCircle(2);
 console.log(c2);
 c2.draw();
+
+//Lecture 3 - Constructor Functions:
+
+//Note - Constructor functions use Pascal Notation.
+
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+
+//note - this references an empty object
+
+//new operator, creates empty object, set this to point to object, finally return set object.
+const circle = new Circle(1);
+const c3 = createCircle(2);
+
+//Whats better? Constructor pattern more familar to OO programmers C#, Java etc.
+//Some purists prefer factory functions, but just pick one and stick with it.
