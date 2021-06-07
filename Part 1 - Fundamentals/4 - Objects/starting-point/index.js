@@ -123,3 +123,24 @@ console.log(circleee);
 //Wait, this object is const, why can we change it?
 //Const is javascript means we cant REASSIGN, not that we cant modify it.
 //const circle = {}; cirlce = 2; //will throw errors.
+
+//Lecture 5 - Constructor Property
+//Every object in JavaScript has a constructor property.
+
+const circle4 = createCircle(1); //has built in constructor
+const circle5 = new Circle(3); //has our custom consturctor
+
+console.log(circle4.constructor);
+console.log(circle5.constructor);
+
+//objectl literal consturctor
+let z = {};
+//let zObj = new Object(); //what happens under the hood.
+
+//string constructor
+new String(); //same as '', "" or ``
+new Boolean(); //same as true or false
+new Number(); //same as 1, 2, 3 ...
+
+//Take home - every object has a constructor property, which points to the method
+//used to create itself.
