@@ -144,3 +144,44 @@ new Number(); //same as 1, 2, 3 ...
 
 //Take home - every object has a constructor property, which points to the method
 //used to create itself.
+
+//Lecture 6 - Functions are Objects:
+//One of the confusing things about javascript is that  functions are actually objects.
+
+function Circlez(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+
+//Access some Object Properites...
+//console.log(Circlez.name);
+//console.log(Circlez.length);
+
+//it even has its constructor
+//console.log(Circlez.constructor); //native code? It used our function to create the obj.
+
+//Another way to construct our function object
+/*
+const testCircle = new Function(
+  "radius",
+  `
+  this.radius = radius;
+  this.draw = function(){ 
+    console.log('draw')}`
+);
+
+const circleOne = new testCircle(1);
+circleOne.draw();
+*/
+
+//This also created a new function object, this is technicall what NEW does under the hood.
+//Calls a method, passes the instance of THIS and the parmaters needed to construct.
+//           this, parameters
+Circlez.call({}, 1);
+
+//apply works much the same, just takes in an array instead.
+Circlez.apply({}, [1, 2, 3]);
+
+//Take Home - In JavaScript, functions ARE objects.
