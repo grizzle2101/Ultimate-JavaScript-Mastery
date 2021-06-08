@@ -380,3 +380,24 @@ function showAddress(address) {
 
 //Passing Address to Iterator
 showAddress(address);
+
+//Excercise 2 - Factory & Constructor Functions:
+
+//factory function
+function createAddressFactory(street, city, zipCode) {
+  return {
+    street,
+    city,
+    zipCode,
+  };
+}
+
+//constructor function
+function Address(street, city, zipCode) {
+  this.street = street;
+  this.city = city;
+  this.zipCode = zipCode;
+}
+
+const testAddress = new Address("123 Fake Street", "Sin City", "D04");
+showAddress(testAddress);
