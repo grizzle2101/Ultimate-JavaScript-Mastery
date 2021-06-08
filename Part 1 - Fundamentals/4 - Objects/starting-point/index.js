@@ -314,3 +314,25 @@ console.log(message.trim()); //removes whitespace, has Trim Left, right etc.
 //console.log(messageTwo);
 
 console.log(message.split(" ")); //splits string by empty space or characters.
+
+//Lecture 13 - Template Literals:
+const maMessage = "this is my \n" + "'first' message";
+console.log(maMessage);
+
+//How can we tidy this up? Using template literals
+
+//What kind of Template literals?
+//Object {}
+//Boolean true or false
+//string '' or ""
+//Template literals for ES6 and upwards
+
+//benefits - Add line break directly, use placeholders for varaibles, MUCH tidyer
+const name = "John";
+const anotherOne = `Hi ${name} this is my 
+'first' message on day ${2 + 2}.`;
+
+console.log(anotherOne);
+
+//Take home - template literals let us work with strings in a much more flexible
+// & cleaner way.
