@@ -212,6 +212,7 @@ function increase(number) {
   number.value++;
 }
 
+//Value Type
 let number = 10;
 increase(number);
 console.log(number);
@@ -223,3 +224,37 @@ console.log(number);
 let numberz = { value: 10 };
 increase(numberz);
 console.log(numberz);
+
+//Lecture 8 - Enumerating Properties of an Object:
+const circ = {
+  radius: 1,
+  draw() {
+    console.log("draw");
+  },
+};
+
+//In previous lecture, we went over forOf and forIn.
+for (let key in circ) {
+  console.log(key, circ[key]);
+}
+
+/*OF only works on iterables, aka ARRAYS & MAPS.
+for (let key of circ) {
+  console.log(key, circ[key]);
+}
+*/
+
+//Hack - We can however get the keys of the Circle object, then iterate over that.
+//Object.keys - returns object properties as string array.
+for (const key of Object.keys(circ)) {
+  console.log(key);
+}
+
+//object.enteries returns the properties and methods as a keyvalue pair.
+for (const entry of Object.entries(circ)) {
+  console.log(entry);
+}
+
+//simplest way to iterate properties of an object is using FOR IN loop.
+//Simplest way to check if a property or method exists is to use IN, like so.
+if ("radius" in circ) console.log("Yes!");
