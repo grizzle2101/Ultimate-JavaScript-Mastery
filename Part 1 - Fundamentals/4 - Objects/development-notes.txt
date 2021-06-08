@@ -79,3 +79,18 @@ when we're finished with them.
 In JavaScript we don't have this concept, it has a built in garbage collector
 is to find variables & constants and deallocate them.
 We have no way of interacting with the garbage collector.
+
+
+Lecture 11 - Math:
+So now we've got a good handle on objects, we can start to look at some of the built
+in objects in JavaScript aka the Math class.
+
+Our go go website for documentation
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+
+Some examples:
+console.log(Math.random());
+console.log(Math.round());
+console.log(Math.max(1, 2, 3, 4, 5));
+console.log(Math.min(1, 2, 3, 4, 5));

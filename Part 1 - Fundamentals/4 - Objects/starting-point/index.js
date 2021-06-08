@@ -285,3 +285,7 @@ const anotha = { ...circ };
 
 //Take Home - Object.assign takes 1 or more objects, and combines them.
 //Spread operator can be used to easily copy 1 object into another.
+console.log(Math.random());
+console.log(Math.round());
+console.log(Math.max(1, 2, 3, 4, 5));
+console.log(Math.min(1, 2, 3, 4, 5));
