@@ -352,3 +352,31 @@ console.log(now, date1, date2);
 console.log(now.toISOString());
 
 //Note - ISO formatting the most common format to use for web development.
+
+//Excercise 1 - Address Object:
+//Create address object with 3 properties, street, City & ZipCode.
+//Create a function called showAddress that iterates over & prints the contents.
+
+//Task 1 - Address Object:
+//Factory function
+function createAddress(street, city, zipCode) {
+  return {
+    street,
+    city,
+    zipCode,
+  };
+}
+
+//Using Factory
+const address = createAddress("123 Fake Street", "Sin City", "D04");
+
+//Task 2 - Address Function
+//ForIn to display properties of Object
+function showAddress(address) {
+  for (const key in address) {
+    console.log(`${key} - ${address[key]}`); //template literals
+  }
+}
+
+//Passing Address to Iterator
+showAddress(address);
