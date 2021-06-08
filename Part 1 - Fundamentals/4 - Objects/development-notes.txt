@@ -70,3 +70,12 @@ no problem! We do get our property incremented number!
 Take Home:
 -In JavaScript we have value types(primitives) and reference types which are objects.
 -Primitives are copies by their valyue. Objects are copies by their reference.
+
+
+
+Lecture 10 - Garbage Collection:
+In low level languages like C, we have to allocate memory for object, and deallocate
+when we're finished with them.
+In JavaScript we don't have this concept, it has a built in garbage collector
+is to find variables & constants and deallocate them.
+We have no way of interacting with the garbage collector.
