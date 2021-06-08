@@ -336,3 +336,19 @@ console.log(anotherOne);
 
 //Take home - template literals let us work with strings in a much more flexible
 // & cleaner way.
+
+//Lecture 14 - Date:
+const now = new Date(); //Date is constructor function
+const date1 = new Date("May 11 2019 09:00");
+const date2 = new Date(2018, 4, 11, 9);
+
+//getters & setters
+now.setFullYear(2012);
+now.getFullYear();
+
+console.log(now, date1, date2);
+
+//date formatting
+console.log(now.toISOString());
+
+//Note - ISO formatting the most common format to use for web development.
