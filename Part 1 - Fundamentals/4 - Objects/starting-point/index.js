@@ -258,3 +258,30 @@ for (const entry of Object.entries(circ)) {
 //simplest way to iterate properties of an object is using FOR IN loop.
 //Simplest way to check if a property or method exists is to use IN, like so.
 if ("radius" in circ) console.log("Yes!");
+
+//Lecture 9 - Cloning an Object:
+//So using the enumeration for last lecture, we could iterate & copy everything into a new object.
+
+//const another = {};
+
+//method 1 - old school way to copy
+/*
+for (let key in circ) {
+  another[key] = circ[key];
+}
+
+console.log(another);
+*/
+
+//method 2 - object.assign(target, itemToCopy)
+//Object.assign(another, circ);
+
+const another = Object.assign({ color: "yellow" }, circ); //add properties & copy
+console.log(another);
+
+//method 3 - spread operator:
+//... spread copies all the variables & methods
+const anotha = { ...circ };
+
+//Take Home - Object.assign takes 1 or more objects, and combines them.
+//Spread operator can be used to easily copy 1 object into another.
