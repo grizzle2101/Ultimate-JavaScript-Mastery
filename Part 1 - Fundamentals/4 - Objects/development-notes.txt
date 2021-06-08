@@ -1,0 +1,72 @@
+
+
+Lecture 7 - Value VS Reference Types:
+In JavaScript we have 2 main types, Values Types(primitives) and reference types.
+
+Values Types:
+Number
+String
+Boolean
+Symbol (new in ECMA Script)
+Undefined
+null
+
+Reference Types:
+Object
+Functions (remember functions are objects too)
+Arrays (remember arrays are also objects!)
+
+
+How they behave differently?
+-Value Types
+let x = 10;
+let y = x;
+
+x = 20;
+console.log(x, y);
+//result - 20 & 10.
+
+-Reference Types:
+let x = { value: 10 };
+let y = x;
+
+x.value = 20;
+console.log(x, y);
+//result - 20 & 20.
+
+
+Take Home:
+Value types store the actual value, reference types only pass a reference to the location
+of the object.
+
+
+Another Scenario - Using Functions:
+function increase(number) {
+  number++;
+}
+
+-Value Type
+let number = 10;
+increase(number);
+console.log(number);
+
+In this scenario we see no increment, because the incremented number only exists inside
+the scope of the function.
+We have 2 independent copies.
+
+-Reference Type:
+function increase(number) {
+  number.value++;
+}
+
+
+let numberz = { value: 10 };
+increase(numberz);
+console.log(numberz);
+
+Now with reference types, we're passing a reference to the same object, so this works
+no problem! We do get our property incremented number!
+
+Take Home:
+-In JavaScript we have value types(primitives) and reference types which are objects.
+-Primitives are copies by their valyue. Objects are copies by their reference.

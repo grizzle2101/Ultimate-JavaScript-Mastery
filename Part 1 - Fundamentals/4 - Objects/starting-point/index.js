@@ -1,8 +1,8 @@
 //Lecture 1 - Basics:
 //We should group highly related variables into a function.
 let radius = 1;
-let x = 1;
-let y = 2;
+//let x = 1;
+//let y = 2;
 
 //highly related functions should also be contained inside the object.
 function draw() {}
@@ -185,3 +185,41 @@ Circlez.call({}, 1);
 Circlez.apply({}, [1, 2, 3]);
 
 //Take Home - In JavaScript, functions ARE objects.
+
+//Lecture 7 - Value VS Reference Types:
+/*
+let x = 10;
+let y = x;
+
+x = 20;
+//Notice changing X, does not change Y.
+consolel.log(x, y);
+*/
+
+//What if we change these to Reference Types?
+let x = { value: 10 };
+let y = x;
+
+x.value = 20;
+console.log(x, y);
+//result - 20 & 20.
+
+//Take home - when we create an object, the value is not stored in the x variable.
+//X is only a reference to a location in memory, so when we change X, Y also gets the changes.
+
+function increase(number) {
+  //number++;
+  number.value++;
+}
+
+let number = 10;
+increase(number);
+console.log(number);
+
+//Why no increment? The incremented number only exists inside the scope of the function...
+//We have 2 independent copies...
+
+//Reference Type:
+let numberz = { value: 10 };
+increase(numberz);
+console.log(numberz);
