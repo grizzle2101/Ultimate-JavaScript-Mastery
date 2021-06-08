@@ -285,7 +285,32 @@ const anotha = { ...circ };
 
 //Take Home - Object.assign takes 1 or more objects, and combines them.
 //Spread operator can be used to easily copy 1 object into another.
-console.log(Math.random());
-console.log(Math.round());
-console.log(Math.max(1, 2, 3, 4, 5));
-console.log(Math.min(1, 2, 3, 4, 5));
+
+//Lecture 11 - String:
+
+//string primitive
+const message = "This is my first message";
+
+//string object
+const anotherWan = new String("Hi");
+
+console.log(typeof message);
+console.log(typeof anotherWan);
+//first is string, second is an object
+
+//using string methods:
+console.log(message.length);
+console.log(message.includes("my"));
+console.log(message.startsWith("This"));
+console.log(message.endsWith("e"));
+console.log(message.indexOf("my"));
+console.log(message.replace("first", "second"));
+console.log(message.toUpperCase());
+console.log(message.toLowerCase());
+console.log(message.trim()); //removes whitespace, has Trim Left, right etc.
+
+//escape notation
+//const messageTwo = "This is \"my\" first message";
+//console.log(messageTwo);
+
+console.log(message.split(" ")); //splits string by empty space or characters.

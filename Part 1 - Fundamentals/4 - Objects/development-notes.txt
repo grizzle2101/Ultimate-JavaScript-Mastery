@@ -94,3 +94,34 @@ console.log(Math.random());
 console.log(Math.round());
 console.log(Math.max(1, 2, 3, 4, 5));
 console.log(Math.min(1, 2, 3, 4, 5));
+
+
+Lecture 11 - String:
+const message = "hi";
+message.?
+So if we look at a string we have methods available, whats with that?
+I thought strings were primitive types, and only objects have methods?
+
+
+We have 2 types of string, the primitive and the object string.
+
+//string primitive
+const message = "hi";
+
+//string object
+const another = new String("Hi");
+
+console.log(typeof message);
+console.log(typeof another);
+//first is string, second is an object
+
+
+So why do we have methods for the primitive type? Well the JavaScript engine knows
+that its a string, and thus assigns the string object properties to it.
+As its quite common to want the string functions available.
+
+note:
+Search JavaScript sting on mozilla developer for all the properties available to a string.
+
+
+
