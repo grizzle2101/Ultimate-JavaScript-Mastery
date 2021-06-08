@@ -401,3 +401,35 @@ function Address(street, city, zipCode) {
 
 const testAddress = new Address("123 Fake Street", "Sin City", "D04");
 showAddress(testAddress);
+
+//Excercise 3 - Object Equality:
+//Create a function to compare the contents of the 2 objects.
+let addressOne = new Address("123 Fake Street", "Sin City", "D04");
+let addressTwo = new Address("123 Fake Street", "Sin City", "D04");
+
+//note - as these are reference types === wont work, as it compares their locations, not values.
+//we need to compare the properties....
+
+//Task 1 - areEqual:
+function areEqual(address1, address2) {
+  for (let key in address1) {
+    if (address1[key] !== address2[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log("Testing Object Equality - ", areEqual(addressOne, addressTwo));
+
+//Task 2 - areSame: (check if they're the same object reference):
+//Simplest way to check if objects are the same, strict equality operator.
+function areSame(addressOne, addresstwo) {
+  return addressOne === addresstwo;
+}
+//test different objects
+console.log("Are the Same?", areSame(addressOne, addressTwo));
+
+//test assignment of same oreference type
+let addressThree = addressOne;
+console.log("Are the Same?", areSame(addressOne, addressThree));
