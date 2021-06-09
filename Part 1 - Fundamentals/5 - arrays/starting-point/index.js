@@ -26,3 +26,27 @@ console.log(numbers.includes("a")); //more clean way
 
 //optional parameter - fromIndex
 console.log("end - ", numbers.indexOf("a", 3)); //We can skip beyond first occurence of an item.
+
+//Lecture 4 - Finding Elements(reference types):
+const courses = [
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+  { id: 3, name: "c" },
+];
+
+courses.includes({ id: 1, name: "a" });
+//this does not work because we know reference types are stored in different locations.
+
+//array.find() lookup mozilla documentation.
+console.log(
+  courses.find(function (element) {
+    return element.name === "a";
+  })
+);
+
+//array.findIndex() fairly self explanitory.
+console.log(
+  courses.findIndex(function (element) {
+    return element.name === "a";
+  })
+);
