@@ -50,3 +50,21 @@ console.log(
     return element.name === "a";
   })
 );
+
+//Lecture 5 - Arrow Functions:
+/* In the previous lecture we passed a predicate function to find the courses.
+    There is a much cleaner way to do that, using arrow functions.
+
+    console.log(
+  courses.find(function (element) {
+    return element.name === "a";
+  })
+);
+*/
+
+//clean up function using arrow functions.
+console.log(
+  courses.find((course) => {
+    course.name === "a";
+  })
+);
