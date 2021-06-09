@@ -1,0 +1,8 @@
+
+Lecture 1 - Arrays:
+In this section we're going to take a deep dive into arrays.
+-Adding new elements
+-Finding elements
+-Removing elements
+-splitting arrays
+-combining arrays
