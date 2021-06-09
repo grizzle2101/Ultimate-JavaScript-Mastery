@@ -505,3 +505,15 @@ post.postComment({ title: "comment title", body: "comment body" });
 post.publishComment();
 post.viewPost();
 console.log(post);
+
+//Excercise 6 - Price Range Object:
+//We want to implment price range buttons like cheap, medium & expensive.
+//Create an Array of Price range objects...
+
+let priceRanges = [
+  { label: "$", toolTip: "Inexpensive", minPerPerson: 0, maxPerPerson: 10 },
+  { label: "$", toolTip: "Moderate", minPerPerson: 11, maxPerPerson: 20 },
+  { label: "$", toolTip: "Expensive", minPerPerson: 21, maxPerPerson: 50 },
+];
+//Filter Restaurants where its within the users budet...
+let restaurants = [{ averagePerPerson: 5 }];
