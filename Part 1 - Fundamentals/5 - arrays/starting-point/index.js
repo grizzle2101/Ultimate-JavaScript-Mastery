@@ -68,3 +68,15 @@ console.log(
     course.name === "a";
   })
 );
+
+//Lecture 6 - Removing Elements:
+
+//end
+const last = numbers.pop();
+
+//begining
+const first = numbers.shift();
+
+//middle
+const middle = numbers.splice(2, 2); //remove @ index 2, remove 1 element.
+console.log(numbers);
