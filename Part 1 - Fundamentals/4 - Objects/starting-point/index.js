@@ -433,3 +433,39 @@ console.log("Are the Same?", areSame(addressOne, addressTwo));
 //test assignment of same oreference type
 let addressThree = addressOne;
 console.log("Are the Same?", areSame(addressOne, addressThree));
+
+//Excercise - Blog Post Object:
+
+function createBlogPostFactory(title, body, author, views, comments, isLive) {
+  return {
+    title,
+    body,
+    author,
+    views,
+    comments: {
+      author: comments.author,
+      body: comments.body,
+    },
+    isLive,
+  };
+}
+
+let blogPost = {
+  title: "a",
+  body: "b",
+  author: "c",
+  views: 10,
+  comments: [
+    {
+      author: "a",
+      body: "b",
+    },
+    {
+      author: "c",
+      body: "d",
+    },
+  ],
+  isLive: true,
+};
+
+console.log("BlogPost - ", blogPost);

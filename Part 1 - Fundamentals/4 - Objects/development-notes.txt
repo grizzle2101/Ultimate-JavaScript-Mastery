@@ -124,4 +124,23 @@ note:
 Search JavaScript sting on mozilla developer for all the properties available to a string.
 
 
+//using string methods:
+console.log(message.length);
+console.log(message.includes("my"));
+console.log(message.startsWith("This"));
+console.log(message.endsWith("e"));
+console.log(message.indexOf("my"));
+console.log(message.replace("first", "second"));
+console.log(message.toUpperCase());
+console.log(message.toLowerCase());
+console.log(message.trim()); //removes whitespace, has Trim Left, right etc.
 
+
+Escape notation:
+This important when you want to add quotes or special characters inside text.
+const messageTwo = "This is \"my\" first message";
+console.log(messageTwo);
+
+
+\' - escapes quote
+\n - escapes newline
