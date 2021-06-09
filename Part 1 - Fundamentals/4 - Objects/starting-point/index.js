@@ -434,7 +434,7 @@ console.log("Are the Same?", areSame(addressOne, addressTwo));
 let addressThree = addressOne;
 console.log("Are the Same?", areSame(addressOne, addressThree));
 
-//Excercise - Blog Post Object:
+//Excercise 4 - Blog Post Object:
 
 function createBlogPostFactory(title, body, author, views, comments, isLive) {
   return {
@@ -469,3 +469,39 @@ let blogPost = {
 };
 
 console.log("BlogPost - ", blogPost);
+
+//Excercise 5 - Constructor Functions:
+//A Constructor function to create a post object, but with a few differences.
+//A user is draughting a post, but the user has not published it yet.
+//What should this constructor look like?
+
+function Post(title, body, author) {
+  this.title = title;
+  this.body = body;
+  this.author = author;
+  this.views = 0;
+  this.comments = [];
+  this.isLive = false;
+
+  this.postComment = function (comments) {
+    this.comments = comments;
+  };
+  this.publishComment = function () {
+    this.isLive = true;
+  };
+  this.viewPost = function () {
+    this.views++;
+  };
+}
+
+const post = new Post(
+  "Code Review",
+  "This is the best series ever",
+  "Con da Mon"
+);
+
+console.log(post);
+post.postComment({ title: "comment title", body: "comment body" });
+post.publishComment();
+post.viewPost();
+console.log(post);
