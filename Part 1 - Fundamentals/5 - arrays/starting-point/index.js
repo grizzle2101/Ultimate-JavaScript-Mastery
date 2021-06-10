@@ -80,3 +80,35 @@ const first = numbers.shift();
 //middle
 const middle = numbers.splice(2, 2); //remove @ index 2, remove 1 element.
 console.log(numbers);
+
+//Lecture 7 - Emptying an Array:
+
+//Solution 1 - Reassign:
+let numbaz = [1, 2, 3];
+let another = numbaz;
+//numbaz = [];
+
+//note, if we used numbaz as the value for another array it will still exist in memory.
+//console.log("another - ", another, "- original - ", numbaz);
+
+//Solution 2 - array.length:
+//We can set the array length to 0, this will truncate and remove the values.
+//numbaz.length = 0;
+//console.log("another - ", another, "- original - ", numbaz); //removes BOTH arrays based on same values.
+
+//Solution 3 - Splice Method:
+//numbaz.splice(0, numbaz.length);
+//console.log("another - ", another, "- original - ", numbaz);
+
+//Solution 4 - Pop Method: (please do not DO this.)
+while (numbaz.length > 0) {
+  numbaz.pop();
+}
+
+console.log("another - ", another, "- original - ", numbaz);
+
+/* Take Home
+  If you have a simple array, it is array = [] is your simplest solution.
+  However if your array is referenced by another array, you will have to use one of the other 3 options.
+  The simplest option for that being array.length = 0;
+*/
