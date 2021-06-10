@@ -112,3 +112,33 @@ console.log("another - ", another, "- original - ", numbaz);
   However if your array is referenced by another array, you will have to use one of the other 3 options.
   The simplest option for that being array.length = 0;
 */
+
+//Lecture 8 - Combing & Slicing Arrays:
+const firstTest = [1, 2, 3];
+const secondTest = [4, 5, 6];
+
+//Combine using concat function
+const combined = firstTest.concat(secondTest);
+console.log("combined - ", combined);
+
+const sliced = combined.slice(2, 4);
+
+console.log("sliced - ", sliced);
+
+//There are a few different ways to use Slice here:
+//const newArray = array.slice(); - Copy array into new array
+//array.slice(2) - skip first 2 and take the contents
+//array.slice(2, 4) - take between 2 & 4 from array
+
+/* Note:
+  When using concat with primitive types, the values are copied directly into an array.
+  However when using object aka reference types, ONLY a reference to the object is being copied.
+*/
+
+//example:
+const firstObj = [{ id: 1 }];
+const secondObj = firstObj.slice();
+secondObj[0].id = 2;
+
+console.log("first - ", firstObj[0].id, " - second", secondObj[0].id);
+//Result - We have changed the value for BOTH objects.
