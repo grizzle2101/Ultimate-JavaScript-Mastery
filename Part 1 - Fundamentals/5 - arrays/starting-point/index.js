@@ -185,3 +185,46 @@ const formatted = parts.join("-");
 console.log("formatted - ", formatted);
 
 //note - this join method is particularly helpful when building URLs for a website.
+
+//Lecture 12 - Sorting Arrays:
+//What if we want to change the order of things?
+
+//Converts items to strings
+const sorted = numbers.sort();
+console.log("sorted - ", sorted);
+
+//This is often used in conjunction with reverse
+console.log(numbers.reverse());
+
+//Note - these only work with primtive types, for objects we have to change it up.
+
+const coursesTest = [
+  { id: 1, name: "Node" },
+  { id: 2, name: "javaScript" },
+];
+
+//console.log("sorted objects - ", coursesTest.sort()); //result, our objects are not sorted...
+
+//task - write a sorting function for dealing with Objects:
+coursesTest.sort((a, b) => {
+  const nameA = a.name.toUpperCase();
+  const nameB = b.name.toUpperCase();
+  if (nameA < nameB) return -1;
+  if (nameA > nameB) return 1;
+  return 0;
+});
+
+console.log("sorted objects 2.0 - ", coursesTest);
+
+/*
+note - the sorting logic we created is case senstive, if we change to javascript
+our sorting gets ruined. This is because for javascript to compare 2 strings,
+it has an numeric value for each character, and J and j are assigned 2 different values.
+
+lookup - ASCII table - ameriscan standard code for information interchange
+N = 76
+J = 74
+j = 106
+*/
+
+//solution - always to UPPERCASE string comparison.
