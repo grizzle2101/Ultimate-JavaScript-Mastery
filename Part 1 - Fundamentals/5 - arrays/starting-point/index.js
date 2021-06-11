@@ -169,3 +169,19 @@ numbers.forEach((number, index) =>
 
 //note - We could also get the index using the FORIN loop.
 //Take home - we have multiple ways to iterate over an array.
+
+//Lecture 11 - Joining Arrays:
+//Join array to string with comma seperating them.
+const joined = numbers.join(",");
+console.log("joined - ", joined);
+
+//Split a message into individual parts
+const message = "this is my first message";
+const parts = message.split(" "); //split on whitespace
+console.log("parts - ", parts);
+
+//format the parts to build a formatted message
+const formatted = parts.join("-");
+console.log("formatted - ", formatted);
+
+//note - this join method is particularly helpful when building URLs for a website.
