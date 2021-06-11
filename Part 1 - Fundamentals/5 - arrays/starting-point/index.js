@@ -228,3 +228,20 @@ j = 106
 */
 
 //solution - always to UPPERCASE string comparison.
+
+//Lecture 13 - Testing the Elements of an Array:
+//We have 2 new methods for arrays since ES 6, every & sum
+
+//every - run function & test the values - will return boolean
+const allPositive = numbers.every((item) => item >= 0);
+console.log("allPositive - ", allPositive);
+
+//some - checks if any element satisfies the criteria
+const atLeastOnePositive = numbers.some((item) => item >= 0);
+console.log("atLeastOnePositive - ", atLeastOnePositive);
+
+//Take Home:
+//every - checks if EVERY element satisfies the criteria.
+//some - checks if SOME(ONE) element satisfies the criteria.
+
+//Also - These are newer JavaScript methods, not all browsers support them.
