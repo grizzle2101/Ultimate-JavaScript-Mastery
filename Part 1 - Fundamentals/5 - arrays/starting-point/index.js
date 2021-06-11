@@ -151,3 +151,21 @@ const testSpreadArry = [...firstTest, ...secondTest, "b"];
 console.log("spread -", testSpreadArry);
 
 //Take home - Spead is a clean way to combine, and add to an array in a single line.
+
+//Lecture 10 - Iterating an Array:
+
+//Method 1 - For Loop
+for (let number of numbers) {
+  console.log("number - ", number);
+}
+
+//Method 2 - array.foreach
+numbers.forEach((number) => console.log("numba -", number));
+
+//2nd Parameter - Arrow Functions have a 2nd parameter, the index.
+numbers.forEach((number, index) =>
+  console.log("numba -", number, " index - ", index)
+);
+
+//note - We could also get the index using the FORIN loop.
+//Take home - we have multiple ways to iterate over an array.
