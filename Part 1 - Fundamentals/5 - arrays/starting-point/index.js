@@ -245,3 +245,9 @@ console.log("atLeastOnePositive - ", atLeastOnePositive);
 //some - checks if SOME(ONE) element satisfies the criteria.
 
 //Also - These are newer JavaScript methods, not all browsers support them.
+
+//Lecture 14 - Filtering an Array:
+
+//filters everything BUT positive numbers.
+const onlyPositive = numbers.filter((item) => item >= 0);
+console.log("onlyPositive - ", onlyPositive);
