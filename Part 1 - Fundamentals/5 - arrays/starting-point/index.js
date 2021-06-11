@@ -142,3 +142,12 @@ secondObj[0].id = 2;
 
 console.log("first - ", firstObj[0].id, " - second", secondObj[0].id);
 //Result - We have changed the value for BOTH objects.
+
+//Lecture 9 - Spread Operator:
+//Previously we looked at using the concat operator to copy 2 arrays.
+//We have another option, using the spead operator.
+
+const testSpreadArry = [...firstTest, ...secondTest, "b"];
+console.log("spread -", testSpreadArry);
+
+//Take home - Spead is a clean way to combine, and add to an array in a single line.
