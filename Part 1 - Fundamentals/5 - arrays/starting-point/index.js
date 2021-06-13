@@ -275,3 +275,24 @@ console.log(numbers.filter((n) => n >= 0).map((n) => ({ value: n })));
 
 //Take Home - Map & Filter do NOT modify the array, but return a new array.
 //They can also be chained.
+
+//Lecture 15 - Reducing an Array:
+//Say we want to sum up all items in an array.
+
+//Method 1 - Simple Loop:
+let sum = 0;
+for (const n in numbers) {
+  sum += n;
+}
+
+//Method 2 - Using Reduce Method
+//Accumulatror & arrow function
+const total = onlyPositive.reduce(
+  (accumulator, currnetValue) => accumulator + currnetValue
+);
+//0 - Initial Value of Acculumlator.
+
+console.log("total - ", total);
+
+//Take home - reduce uses a accumulator to keep track of total, by adding current value
+//We can neatly and simply sum a array.
