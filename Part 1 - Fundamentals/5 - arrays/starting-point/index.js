@@ -307,6 +307,19 @@ function arrayFromRange(min, max) {
   }
   return range;
 }
-const range = arrayFromRange(-2, 10);
+const range = arrayFromRange(-2, -2);
 
 console.log("range - ", range);
+
+//Excercise 2 - Includes:
+//Write a function that replicates the array.incluedes function.
+
+function checkArrayIncludes(list, valueToCheck) {
+  for (const item of list) {
+    if (item === valueToCheck) return true;
+  }
+  return false;
+}
+
+let testValues = [1, 2, 3];
+console.log("Does my array include 2? - ", checkArrayIncludes(testValues, 1));
