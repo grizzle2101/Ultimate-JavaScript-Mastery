@@ -390,3 +390,25 @@ function move(array, index, offset) {
 console.log("before - ", testValues);
 const reorganized = move(testValues, 0, 2);
 console.log("after - ", reorganized);
+
+//Excercise 5 - Court Occurences:
+
+function countOccurences(array, searchElement) {
+  let count = 0;
+  /*versoin 1 - Simple version
+  for (const item of array) {
+    if (item === searchElement) count++;
+  }
+  */
+
+  //version 2 - reduce method
+  array.reduce((accumulator, current) => {
+    const occurence = current === searchElement ? 1 : 0;
+    return accumulator + occurence;
+  }, 0);
+  return count;
+}
+
+console.log("before - ", testValues);
+const count = countOccurences([1, 1, 1], 1);
+console.log("count - ", count);
