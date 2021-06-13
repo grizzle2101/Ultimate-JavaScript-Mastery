@@ -296,3 +296,17 @@ console.log("total - ", total);
 
 //Take home - reduce uses a accumulator to keep track of total, by adding current value
 //We can neatly and simply sum a array.
+
+//Excercise 1 - Array from Range:
+
+function arrayFromRange(min, max) {
+  let range = [];
+  while (min <= max) {
+    range.push(min);
+    min++;
+  }
+  return range;
+}
+const range = arrayFromRange(-2, 10);
+
+console.log("range - ", range);
