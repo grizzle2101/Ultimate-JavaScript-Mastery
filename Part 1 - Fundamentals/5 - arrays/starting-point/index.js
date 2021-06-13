@@ -251,3 +251,27 @@ console.log("atLeastOnePositive - ", atLeastOnePositive);
 //filters everything BUT positive numbers.
 const onlyPositive = numbers.filter((item) => item >= 0);
 console.log("onlyPositive - ", onlyPositive);
+
+//Lecture 15 - Mapping an Array:
+//Another very powerful method in JavaScript is map, we can transform and map
+//data from one array into another.
+
+//Task map to string - Transform raw numbers to useable markup:
+const filtered = onlyPositive.map((n) => "<li>" + n + "</li>");
+console.log("Mapped Data - ", filtered);
+
+//turn to string
+const html = "<ul>" + filtered.join("") + "</ul>";
+console.log("html Data - ", html);
+
+//Task - Map to Objects:
+const mappedObject = onlyPositive.map((n) => ({
+  value: n,
+}));
+console.log("mappedObject Data - ", mappedObject);
+
+//Chaining Map & Filter
+console.log(numbers.filter((n) => n >= 0).map((n) => ({ value: n })));
+
+//Take Home - Map & Filter do NOT modify the array, but return a new array.
+//They can also be chained.
