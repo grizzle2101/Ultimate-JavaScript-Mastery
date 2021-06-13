@@ -349,3 +349,44 @@ function exclude(array, excluded) {
 
 const excludedList = exclude(testValues, [1, 1]);
 console.log("Excludes list - ", excludedList);
+
+//Excercise 4 - Moving an Element:
+
+/*
+function move(array, index, offset) {
+  let savedValue = array[index + offset];
+
+  //task 1 - shift item
+  array[index + offset] = array[index];
+
+  //task 3 - remove old item
+  array.splice(index, 1);
+
+  //task 2 - replace existing item.
+  array[index + offset + 1] = savedValue;
+
+  console.log("test array - ", array);
+  return array;
+}
+*/
+
+//Mosh Version
+function move(array, index, offset) {
+  const position = index + offset;
+
+  //Validate Position
+  if (position >= array.length || position < 0) {
+    console.error("Invalid Offset.");
+    return;
+  }
+
+  //Sorting Alghoritm
+  const output = [...array];
+  const element = output.splice(index, 1)[0]; //remove item
+  output.splice(position, 0, element); //insert item
+  return output;
+}
+
+console.log("before - ", testValues);
+const reorganized = move(testValues, 0, 2);
+console.log("after - ", reorganized);
