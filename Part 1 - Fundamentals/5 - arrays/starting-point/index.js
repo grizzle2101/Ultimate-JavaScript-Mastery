@@ -323,3 +323,29 @@ function checkArrayIncludes(list, valueToCheck) {
 
 let testValues = [1, 2, 3];
 console.log("Does my array include 2? - ", checkArrayIncludes(testValues, 1));
+
+//Excercise 3 - Except:
+//Write a function that excludes values from the array.
+
+function exclude(array, excluded) {
+  let copiedArray = [...array]; //copy array to avoid destroying original.
+  for (const excludedItem of excluded) {
+    for (const key in copiedArray) {
+      if (copiedArray[key] === excludedItem) copiedArray.splice(key, 1);
+    }
+  }
+
+  /*Moshes Approach - Cleaner, but thought using .includes was cheating...
+  const output = [];
+  for (let element of array) {
+    if (!excluded.includes(element)) {
+      output.push(elemtnt);
+    }
+  }
+  return output;
+  */
+  return copiedArray;
+}
+
+const excludedList = exclude(testValues, [1, 1]);
+console.log("Excludes list - ", excludedList);
