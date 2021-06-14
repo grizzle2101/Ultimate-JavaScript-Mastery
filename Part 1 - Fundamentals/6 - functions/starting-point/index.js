@@ -64,14 +64,16 @@ function sum(a, b) {
   return a + b;
 }
 */
-console.log('SUM - ', sum(1, 2));
-console.log('SUM - ', sum(1)); //We can pass 1 argument - 1 + undefined = nan
-console.log('SUM - ', sum()); //We can pass 1 argument - 1 + undefined = nan
-console.log('SUM - ', sum(1, 2, 3, 4)); //We can pass 1 argument - 1 + undefined = nan
+//console.log('SUM - ', sum(1, 2));
+//console.log('SUM - ', sum(1)); //We can pass 1 argument - 1 + undefined = nan
+//console.log('SUM - ', sum()); //We can pass 1 argument - 1 + undefined = nan
+//console.log('SUM - ', sum(1, 2, 3, 4)); //We can pass 1 argument - 1 + undefined = nan
 
 
 //How do we pass any many arguments as we want?
 //note - We can access the additional arguments with ARGUMENTS
+
+/*
 function sum() {
   let total = 0;
   for (let value of arguments) {
@@ -79,3 +81,15 @@ function sum() {
   } 
   return total;
 }
+*/
+
+//Lecture 4 - The Rest Operator:
+//In modern JavaScript, if we want to have a function with multiple arguments, we can use the REST operator.
+
+//note - REST operator takes all incoming arguments, into an array.
+function sum(discount, ...prices) {
+  const total = prices.reduce((a, b) => a + b); //We cam then reduce to a single line.
+  return total * (1 - discount);
+}
+
+console.log('SUM - ', sum(0.1, 20, 30));
