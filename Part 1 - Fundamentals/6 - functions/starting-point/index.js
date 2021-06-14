@@ -4,13 +4,15 @@
 //In this section we're going to go over Functions in more depth.
 
 //Example 1 - Function Declaration
+/*
 function walk() {
   console.log('Walk');
 }
+*/
 
 
 //Example 2 - Annoymous Function Expression
-let run = function() {console.log('Run')};
+//let run = function() {console.log('Run')};
 
 
 //What the difference?
@@ -18,11 +20,35 @@ let run = function() {console.log('Run')};
 //2 - In Function Expressions, we dont give the function a name.
 
 //Example 3 - Named Function Expression
-let runAgain = function run() {console.log('Run')};
+//let runAgain = function run() {console.log('Run')};
 
 //Calling our Function Expressions
+/*
 run();
 let move = run;
 move();
+*/
 
 //Take home - There are 2 methods for creating a function, Function Declarations & Function Expressions.
+
+
+//Lecture 2 - Hoisting:
+//In the previous lecture we went over function declarations V expressions.
+
+//note = we can call the walk function either before or after the method declaration.
+walk();
+function walk() {
+  console.log('Walk');
+}
+walk();
+
+//however - not with function expressions.
+run();
+let run = function() {console.log('Run')};
+run();
+
+
+//Why is this the case? The JavaScript engine checks our functions, and moved them to the top of the page.
+//This is what we called HOISTING.
+//N.B - Hoisting is the process of moving function declarations to the top of the file. 
+//That is why we can use function declarations BEFORE they're definition.
