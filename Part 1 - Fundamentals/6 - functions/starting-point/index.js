@@ -195,6 +195,7 @@ console.log(message);
 //Scope determines where the variable or constant is accessible.
 //Const & Let are only accessible inside the block in which they reside.
 
+/*
 function test(){
   const message = 'hi'; // only available inside function
 
@@ -213,5 +214,59 @@ function stop() {
 }
 
 const color = 'red'; // global scope
+*/
 
 //take home - Const & Let are ONLY accessible within in the code block they reside. If they're not in a block, they're global.
+
+
+//Lecture 9 - Let V Var:
+let x = 0;
+var y = 0;
+
+
+/*version 1 - using let
+function start() {
+  for(let i=0; i < 5; i++) {
+    console.log(i);
+  }
+  console.log(i);
+}
+//Throws error, I is not accessible.
+*/
+
+//version 2 - using var
+function start() {
+  for(var i=0; i < 5; i++) {
+    console.log(i);
+    var color = 'red';
+  }
+  console.log(i, color);
+}
+//Now I is accessible!
+//note - by using VAR, the value is not limited to the scope where it is defined, but the entire function.
+// var is a legacy < 2016, let & const create block scope varliables
+start()
+
+
+var color = 'red';
+let age = 30;
+
+//note - window object
+//Window is a global javascript object
+//VAR attatched our color to the Global Window Object, which is something we really dont want to do.
+//If another 3rd party library has a color variable, very likely our value gets overriden, and all kinds of problems arise.
+console.log(window.color);
+
+
+function sayHi(){
+  console.log('HI');
+}
+
+//technical functions are attatched to the window too. We'll learn in the next few tutorial to encapsulte functions in a module,
+//which will avoid this problem.
+window.sayHi();
+
+//Take Home:
+//var = function scoped
+//let = block scoped
+// window = globally available window object, DONT USE.
