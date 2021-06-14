@@ -42,13 +42,40 @@ function walk() {
 }
 walk();
 
-//however - not with function expressions.
+/*however - not with function expressions.
 run();
 let run = function() {console.log('Run')};
 run();
+*/
 
 
 //Why is this the case? The JavaScript engine checks our functions, and moved them to the top of the page.
 //This is what we called HOISTING.
 //N.B - Hoisting is the process of moving function declarations to the top of the file. 
 //That is why we can use function declarations BEFORE they're definition.
+
+
+//Excercise 3 - Arguments:
+//We know JavaScript is a dynamic language, we can assign and reassign values at a moments notice.
+
+
+/*
+function sum(a, b) {
+  return a + b;
+}
+*/
+console.log('SUM - ', sum(1, 2));
+console.log('SUM - ', sum(1)); //We can pass 1 argument - 1 + undefined = nan
+console.log('SUM - ', sum()); //We can pass 1 argument - 1 + undefined = nan
+console.log('SUM - ', sum(1, 2, 3, 4)); //We can pass 1 argument - 1 + undefined = nan
+
+
+//How do we pass any many arguments as we want?
+//note - We can access the additional arguments with ARGUMENTS
+function sum() {
+  let total = 0;
+  for (let value of arguments) {
+    total += value
+  } 
+  return total;
+}
