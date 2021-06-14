@@ -392,7 +392,6 @@ const reorganized = move(testValues, 0, 2);
 console.log("after - ", reorganized);
 
 //Excercise 5 - Court Occurences:
-
 function countOccurences(array, searchElement) {
   let count = 0;
   /*versoin 1 - Simple version
@@ -412,3 +411,26 @@ function countOccurences(array, searchElement) {
 console.log("before - ", testValues);
 const count = countOccurences([1, 1, 1], 1);
 console.log("count - ", count);
+
+//Excercise 6 - Get Max:
+
+function getMax(array) {
+  let larger = 0;
+
+  if (array.length === 0) return undefined;
+
+  //Version 1 - Simple
+  for (const item of array) {
+    larger = item > larger ? item : larger;
+  }
+  //return larger;
+
+  //Version 2 - Reduce:
+  return array.reduce((accumulator, current) => {
+    const max = current > accumulator ? current : accumulator;
+    return max;
+  });
+}
+
+const max = getMax([1, 3, 2]);
+console.log("max -", max);
