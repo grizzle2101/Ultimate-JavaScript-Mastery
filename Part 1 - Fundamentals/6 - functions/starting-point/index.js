@@ -121,6 +121,7 @@ console.log('interest - ', interest(10000));
 //If we want to write out a persons name in several places in the application, this might get a bit tedious?
 //This is where Getters & Setters help us
 
+/*
 const person = {
   firstName: 'Mosh',
   lastName: 'Hamedani',
@@ -128,7 +129,6 @@ const person = {
   fullName() { 
     return `${person.firstName} ${person.lastName}`
   }
-  */
   //Version 2 - Getters & Setters:
   get fullName() {
     return `${person.firstName} ${person.lastName}`
@@ -142,4 +142,43 @@ const person = {
 
 person.fullName = 'John Joe';
 console.log(person);
+*/
 
+//Tutorial 7 - Try & Catch:
+//Carrying on from the previous lecture, we can see a few problems if we pass numbers or null to the set fullName method...
+//This is where Try & Catch error handling comes in handy, lets do some defensive programming.
+
+const person = {
+  firstName: 'Mosh',
+  lastName: 'Hamedani',
+  get fullName() {
+    return `${person.firstName} ${person.lastName}`
+  },
+  set fullName(value) {
+    //Task 1 - Throw Exception
+    if(typeof(value) !== 'string') throw new Error('Value is not a string')
+
+    const parts = value.split(' ');
+    //Task 2 - Handle ' ' assignment
+    if(parts.length !== 2) throw new Error('Value must have first & last name');
+
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  }
+};
+
+try {
+  //person.fullName = 2; //force data type error
+ // person.fullName = ' '; //second error
+ person.fullName = 'John Doe'
+}
+catch(ex) {
+  console.log('caught exception - ', ex);
+}
+
+console.log('person - ', person);
+
+
+//note - Error V Exception:
+//const e = new Error('generic error'); //this is an error.
+//throw e; //the moment is we throw an error, it becomes an exception.
