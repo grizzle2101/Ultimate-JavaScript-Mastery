@@ -115,3 +115,31 @@ console.log('interest - ', interest(10000));
 // note - One caveat with default parameters, when you provide a value, you must provide a number for the rest of the parameters.
 // eg - function interest(principal, rate = 3.5, years) then call with interest(10000, 5), the JS engine cant figure out which
 // parameter gets the value...
+
+
+//Lecture 6 - Getters & Setters:
+//If we want to write out a persons name in several places in the application, this might get a bit tedious?
+//This is where Getters & Setters help us
+
+const person = {
+  firstName: 'Mosh',
+  lastName: 'Hamedani',
+  /*Version 1 - Create Method to return FullName
+  fullName() { 
+    return `${person.firstName} ${person.lastName}`
+  }
+  */
+  //Version 2 - Getters & Setters:
+  get fullName() {
+    return `${person.firstName} ${person.lastName}`
+  },
+  set fullName(value) {
+    const parts = value.split(' ');
+    this.firstName = parts[0];
+    this.lastName = parts[1];
+  }
+};
+
+person.fullName = 'John Joe';
+console.log(person);
+
