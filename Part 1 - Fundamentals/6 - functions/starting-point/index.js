@@ -93,3 +93,25 @@ function sum(discount, ...prices) {
 }
 
 console.log('SUM - ', sum(0.1, 20, 30));
+
+//note - REST must always be the last paramter, as in it takes ALL the rest of the arguments.
+
+
+//Lecture 5 - Default Parameters:
+//There are times when we want supply default parameters for a function.
+
+//What if we want to have a default interest rate?
+//options 2 - ES6 Default values in parameters
+function interest(principal, rate = 3.5, years = 5) {
+  //option 1 - Or Operator
+  //rate = rate || 3.5;
+  //years = years || 5;
+
+  return principal * rate / 100 * years;
+}
+
+console.log('interest - ', interest(10000));
+
+// note - One caveat with default parameters, when you provide a value, you must provide a number for the rest of the parameters.
+// eg - function interest(principal, rate = 3.5, years) then call with interest(10000, 5), the JS engine cant figure out which
+// parameter gets the value...
