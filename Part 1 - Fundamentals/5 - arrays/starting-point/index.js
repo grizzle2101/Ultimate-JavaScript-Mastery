@@ -434,3 +434,28 @@ function getMax(array) {
 
 const max = getMax([1, 3, 2]);
 console.log("max -", max);
+
+//Excercise 7 - Movies:
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 },
+];
+movies.sort;
+
+//get all movies in 2018 > 4
+//Sort their rating in descending order
+// only pick their title property & display on console.
+// result should be 'b' and 'a'
+
+function getMovies(movies) {
+  return movies
+    .filter((m) => m.year >= 2018 && m.rating > 4)
+    .sort((a, b) => a.rating - b.rating)
+    .reverse()
+    .map((m) => m.title);
+}
+
+const organizedMovies = getMovies(movies);
+console.log("organizedMovies -", organizedMovies);
