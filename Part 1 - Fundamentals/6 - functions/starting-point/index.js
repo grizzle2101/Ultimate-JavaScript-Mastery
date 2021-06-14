@@ -182,3 +182,36 @@ console.log('person - ', person);
 //note - Error V Exception:
 //const e = new Error('generic error'); //this is an error.
 //throw e; //the moment is we throw an error, it becomes an exception.
+
+
+
+//Lecture 8 - Local V Global Scope:
+const message = 'hi'; // available globally
+{
+  const message = 'hi'; // only available inside the block
+}
+console.log(message);
+
+//Scope determines where the variable or constant is accessible.
+//Const & Let are only accessible inside the block in which they reside.
+
+function test(){
+  const message = 'hi'; // only available inside function
+
+  if (true) {
+    const another = 'bye'; // only available inside IF block.
+  }
+  console.log(another);
+}
+
+
+function stop() {
+  const message = 'bye'; // valid to use message variable, as it only exists within this scope.
+  console.log(color); // using global color
+  const color = blue;
+  console.log('rewriting - ', color); //bad practice, but you can reassign global variables 
+}
+
+const color = 'red'; // global scope
+
+//take home - Const & Let are ONLY accessible within in the code block they reside. If they're not in a block, they're global.
