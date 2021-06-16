@@ -270,3 +270,79 @@ window.sayHi();
 //var = function scoped
 //let = block scoped
 // window = globally available window object, DONT USE.
+
+
+
+//Lecture 10 - This Keyword:
+/* This references the Object that is executing the current function.
+  If a function, is part of an object we call it a method. So if that method is a function in an object, THIS references that object.
+  If the function is a regular function(not part of an object), THIS references the global object (window object in browsers, global in node).
+
+  Rule 1 - Method -> object
+  Rule 2 - FUnction -> Global
+  */
+
+
+//Example 1 - THIS meaning the object.
+/*
+const video = {
+  title: 'a',
+  play() {
+    console.log(this)
+  }
+};
+*/
+
+//video.play(); //Prings the Video Object, properties & methods.
+
+//What if we just JavaScript Dynamics to create anotherm method from outside?
+//Because we're still using an object, THIS refers to the Video object.
+//video.stop = function(){console.log('stop', this)}
+//video.stop();
+
+
+//Example 2 - Function -> Global
+function playVideo() {
+  console.log('play video', this);
+}
+
+playVideo();
+
+
+//What about Constructor Functions?
+//New creates an empty object, and sets THIS to point to the new empty object.
+function Video(title) {
+  this.title = title;
+  console.log(this);
+}
+
+const v = new Video('abc');
+
+
+//Scenario
+const video = {
+  title: 'a',
+  tags: ['a', 'b', 'c'],
+  /*
+  showTags() {
+    this.tags.forEach(function(tag) {
+      console.log(this.title, tag)})
+  }
+  */
+  //We can't access the title property anymore? That is because call back function do NOT belong to the object.
+  //Therefore THIS refers to the WINDOW, not the Object itself anymore.
+ 
+  //Soltution 1 - Pass thisArgs?, THIS then becomes object we pass.
+  showTags() {
+    this.tags.forEach(function(tag) {
+      console.log(this.title, tag)}, this)
+  }
+};
+
+video.showTags();
+//Take Home:
+// -Using THIS in a function refers to the Object itself
+// -Using THIS in a standalone function, refers to the WINDOW object.
+// -THIS inside a callback function refers to the WINDOW.
+// - There are optional thisArguments to pass a reference to the parent object (video object).
+//Not every method in JavaScript has the thisArgs? parmeter to pass a new reference, we will discuss more in the next lecture.
