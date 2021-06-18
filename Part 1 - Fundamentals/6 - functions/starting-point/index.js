@@ -403,3 +403,17 @@ video.showTags();
 //1 - Using a variable to store SELF.
 //2 - Using bind to set SELF
 //3 - Using arrow functions, most clean & modern approach to passing self.
+
+//Lecture 12 - Sum of Arguments:
+// Part 1 - Sum of all the arguments given.
+// Part 2 - Given an array, transform & return correct results.
+
+function sum(...items) {
+  if (items.length === 1 && Array.isArray(items[0])) items = [...items[0]];
+
+  return items.reduce((a, b) => a + b);
+}
+
+console.log(sum([1, 2, 3]));
+
+//Take home - use spread operator to take in all argument as an array.
