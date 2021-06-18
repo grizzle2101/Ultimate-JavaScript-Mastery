@@ -417,3 +417,17 @@ function sum(...items) {
 console.log(sum([1, 2, 3]));
 
 //Take home - use spread operator to take in all argument as an array.
+
+//Excercise 2 - Area of Circle
+//Create a Circle Object with a property for radius, and a read only field for area.
+
+const circle = {
+  radius: 1,
+  get area() {
+    return Math.PI * this.radius * this.radius;
+  },
+};
+
+console.log("Area - ", circle.area);
+circle.area = 222; //test its read only
+console.log("Area - ", circle.area);
