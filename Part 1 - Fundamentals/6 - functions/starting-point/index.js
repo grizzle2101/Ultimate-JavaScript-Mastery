@@ -431,3 +431,22 @@ const circle = {
 console.log("Area - ", circle.area);
 circle.area = 222; //test its read only
 console.log("Area - ", circle.area);
+
+//Excercise 3 - Error Handling:
+//Add Error handling to countOccurence Method
+function countOccurence(array, searchElement) {
+  if (!Array.isArray(array)) throw new Error("Invalid Array");
+
+  return array.reduce((accumulator, current) => {
+    const occurence = current === searchElement ? 1 : 0;
+    return accumulator + occurence;
+  }, 0);
+}
+
+try {
+  const numbers = [1, 2, 3, 4];
+  const count = countOccurence(null, 1);
+  console.log("count - ", count);
+} catch (ex) {
+  console.log("Yay it fellover...", ex);
+}
