@@ -1,0 +1,10 @@
+Lecture 1 - What is OOP?
+OO is a style of programming that is centred around objects, rather than functions.
+There are several languages that support object oriented programming
+-C#
+-Java
+-Ruby
+-JavaScript
+
+Many popular frameworks are design popular object oriented concepts in mine like Angular.
+Object oritned programming is very important for interviews.
