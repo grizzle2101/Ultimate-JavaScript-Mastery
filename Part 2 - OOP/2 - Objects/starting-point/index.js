@@ -22,10 +22,27 @@ function createCircle(radius) {
   return {
     radius,
     draw() {
-      console.log("draw circle...");
+      console.log("factory draw circle...");
     },
   };
 }
 
 const testCircle = createCircle(2);
 testCircle.draw();
+
+//Lecture 4 - Constructor:
+function Cirlce(radius) {
+  (this.radius = radius),
+    (this.draw = function () {
+      console.log("constructor draw circle...");
+    });
+}
+
+const another = new Cirlce(3);
+//1. New Creates Empty Object. 2. Sets object to point to Circle Object. 3. Passes Values.
+another.draw();
+
+//Note - we have 2 methods to create an object Factory & Constructor, this keyword
+// and new keyword means its a constructor.
+// C# Developers might be familiar with the new keyword, providing a new instance
+// of a class, but again in JavaScript we don't really have that concept, its sytacic sugar.
