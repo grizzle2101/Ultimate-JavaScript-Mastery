@@ -1,0 +1,9 @@
+Lecture 1 - Introduction:
+In this section we're going to go over everything to do with Objects, including
+-Creaing Objects
+-Factories & Constructors
+-Primitive & Reference Types
+-Working with Properites
+-private Properites
+-getters/setters
+
