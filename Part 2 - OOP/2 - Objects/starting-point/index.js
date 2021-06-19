@@ -14,3 +14,18 @@ const circle = {
 circle.draw();
 
 //Note - properties != methods, properties store a value, methods perform some function.
+
+//Lecture 3 - Factories:
+
+//Factory Function
+function createCircle(radius) {
+  return {
+    radius,
+    draw() {
+      console.log("draw circle...");
+    },
+  };
+}
+
+const testCircle = createCircle(2);
+testCircle.draw();
