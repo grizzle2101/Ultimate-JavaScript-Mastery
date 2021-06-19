@@ -62,3 +62,32 @@ console.log(x.constructor);
 new String(); //same as '', "", ``
 new Boolean(); //same as true, false
 new Number(); //same as 1, 2, 3
+
+//Lecture 6 - Functions are Objects:
+//Functions are Objects, see these properties.
+Circle.name;
+Circle.length;
+Circle.constructor; //Our previous created constructor.
+
+//Using Built in Function Constructor
+const Circle1 = new Function(
+  "radius",
+  `
+  this.radius = radius,
+  this.draw = function () {
+      console.log("constructor draw circle...");
+    };`
+);
+
+const testOneCircle = new Circle1(2);
+console.log("test my custom constructor funciton - ", another);
+console.log("test factory function - ", testOneCircle);
+
+//Same properties & methods are available.
+
+//Note - Our NEW operator is essentially using the call method to pass THIS context
+//and any arguments.
+Circle.call(window, 1);
+
+//Take Home - Functions in JavaScript are Objects.
+//Parameters belong in a function, we PASS in agruments when invoked.
