@@ -29,3 +29,18 @@ Lecture 3 - Setting up Development Environment:
 Requirements:
 -VSCode & Live Server
 -boiler plate code
+
+
+Lecture 4 - Course Structure:
+
+Course Content:
+-objects
+-Prototypes
+-Prototypical Inheritence
+-ES6 Classes
+-Modules
+
+ECMA is an organisation that defines standards, JavaScript is programming language
+that conforms to the ES6 standard.
+ECMAScript 6 - ES 2015
+
