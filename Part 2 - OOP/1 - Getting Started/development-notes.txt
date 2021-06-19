@@ -24,3 +24,8 @@ OOP groups related variables and functions into an object.
 
 quote - the best functions are those with no parameters - Uncle Bob - Robert C Martin.
 
+
+Lecture 3 - Setting up Development Environment:
+Requirements:
+-VSCode & Live Server
+-boiler plate code
