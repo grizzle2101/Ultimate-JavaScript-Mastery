@@ -140,3 +140,24 @@ console.log(number);
 
 //Take home - Primitive are copied by their value, reference types are copied by
 //their reference.
+
+//Lecture 8 - Adding or Removing Properties:
+//In JavaScript our objects are dynamic, so we can add or remove properties on the fly.
+
+const cirlce = new Circle(10);
+
+//Example - Updating Location Property
+circle.location = { x: 1 }; //DOT notations
+console.log("circle -", circle);
+
+//note - We can also use Bracket Notation.
+//This is useful when we dont know the value of a property until runtime.
+//also when the propertie names dont conform
+circle["location"] = { x: 3 }; //bracket notation also works.
+circle["center-location"] = { x: 22 }; //also when the property names dont conform
+
+//Example - Delete a Property:
+delete circle.location;
+delete circle["location"];
+
+//Take home - We can assign & remove properties at will.
