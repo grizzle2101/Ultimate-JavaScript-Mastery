@@ -277,3 +277,57 @@ testCircleTwo.defaultLocation = { x: 22, y: 55 };
 console.log(testCircleTwo.defaultLocation);
 
 //Take home - use Object.defint property to define getters & setters.
+
+//Excercise 1 - Stopwatch:
+//cannot call a method twice in a row...
+
+function StopWatch() {
+  //private variables
+  let startTime,
+    endTime,
+    duration = 0;
+
+  //use Closure to allow inner function to use.
+  let isStarted = false;
+
+  this.start = function () {
+    if (!isStarted) {
+      console.log("Start");
+      isStarted = !isStarted;
+      startTime = new Date();
+    } else {
+      throw new Error("Stopwatch already Started...");
+    }
+  };
+  this.stop = function () {
+    if (isStarted) {
+      console.log("Stop");
+      isStarted = !isStarted;
+
+      endTime = new Date();
+      const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
+      duration += seconds;
+    } else {
+      throw new Error("Stopwatch already Stopped...");
+    }
+  };
+
+  this.reset = function () {
+    startTime = 0;
+    endTime = 0;
+    duration = 0;
+  };
+
+  //Getters for Duration
+  Object.defineProperty(this, "duration", {
+    get: function () {
+      return duration;
+    },
+  });
+}
+
+const sw = new StopWatch();
+
+//sw.start();
+//sw.stop();
+//console.log("duration - ", sw.duration);
