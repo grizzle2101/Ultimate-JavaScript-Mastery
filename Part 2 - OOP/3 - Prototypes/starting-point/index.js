@@ -37,3 +37,30 @@ delete person.name;
 //now we can no longer change the name, iterate over its properties or delete name.
 
 //Take home - use property descriptors to configure how our object properties are used.
+
+//Lecture 5 - Constructor Prototypes:
+
+//To find an objects prototype, we use getPrototypeOf.
+Object.getPrototypeOf(person);
+
+//One thing to know is the contructor also has a prototype.
+//As we know functions are objects, so even constructors are objects!
+
+function Circle(radius) {
+  this.radius = radius;
+}
+
+// Example - Contructor === base object prototype:
+let myProtype = Circle.prototype;
+console.log(myProtype);
+
+//Now create a dummy object for comparison
+let myObj = {};
+
+console.log("Is Same object?", myProtype.prototype === myObj.prototype);
+
+//Example Array > base array > base object
+let array = [];
+console.log("Is Same object?", myProtype.prototype === array.prototype);
+
+//Take Home - Contructor prototype is same base oject.
