@@ -195,14 +195,14 @@ function Circle(radius) {
 }
 */
 
-const testCircle = new Circle();
-testCircle.computeOptimumLocation(); //I should not be able to access this.
+//const testCircle = new Circle();
+//testCircle.computeOptimumLocation(); //I should not be able to access this.
 
 //Task - Abstraction, lets hide the detail. And only expose the interface we want.
 //If we can hide computeOptimumLocation and Default location, we dont give the user
 //A change to wreck our object, and we're free to change the implementation
 //without knock on to consumers of this method...
-
+/*
 function Circle(radius) {
   this.radius = radius;
   this.defaultLocation = { x: 0, y: 0 };
@@ -212,3 +212,32 @@ function Circle(radius) {
     this.computeOptimumLocation();
   };
 }
+*/
+
+//Lecture 11 - Private Properties & Methods:
+//So carrying on from abstraction, our best way to abstract is to implment private
+// properties & methods.
+
+function Circle(radius) {
+  this.radius = radius;
+  //note - Closure determines what variables are going to be exposed to an inner function.
+  //Don't confuse Scope & Closure, scope is temporary but closure is permanent.
+  //Set properties
+  let defaultLocation = { x: 0, y: 0 };
+  let computeOptimumLocation = function () {};
+
+  this.draw = function () {
+    console.log("constructor draw circle...");
+    computeOptimumLocation();
+    console.log("radius - ", this.radius);
+    console.log("default location - ", defaultLocation);
+  };
+}
+
+const testCircle = new Circle();
+
+//Take home - Use let instead of THIS to define private variables.
+//Closure dertermines which variables are exposed to an inner function.
+//Scope is temporary, but closure persists in memory.
+//Example - A variable to store the count of errors, is exposed to inner function
+// which reads lines in a file and attempts to sum, or increases error count.
