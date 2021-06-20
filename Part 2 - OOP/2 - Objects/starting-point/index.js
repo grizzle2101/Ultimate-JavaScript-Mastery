@@ -31,12 +31,14 @@ const testCircle = createCircle(2);
 testCircle.draw();
 
 //Lecture 4 - Constructor:
+/*
 function Circle(radius) {
   (this.radius = radius),
     (this.draw = function () {
       console.log("constructor draw circle...");
     });
 }
+*/
 
 const another = new Circle(3);
 //1. New Creates Empty Object. 2. Sets object to point to Circle Object. 3. Passes Values.
@@ -163,7 +165,6 @@ delete circle["location"];
 //Take home - We can assign & remove properties at will.
 
 //Lecture 9 - Enumerating Properties:
-
 //Example 1 - Iterate over properties of an Object
 for (const key in circle) {
   if (typeof circle[key] !== "function") console.log(key, " - ", circle[key]);
@@ -177,4 +178,37 @@ console.log(keys);
 //Example 3 - Check for Property:
 if ("radius" in circle) {
   console.log("Circle has a Radius!");
+}
+
+//Lecture 10 - Abstraction:
+
+//Lets add some complexity to the Circle.
+/*
+function Circle(radius) {
+  this.radius = radius;
+  this.defaultLocation = { x: 0, y: 0 };
+  this.computeOptimumLocation = function () {};
+  this.draw = function () {
+    console.log("constructor draw circle...");
+    this.computeOptimumLocation();
+  };
+}
+*/
+
+const testCircle = new Circle();
+testCircle.computeOptimumLocation(); //I should not be able to access this.
+
+//Task - Abstraction, lets hide the detail. And only expose the interface we want.
+//If we can hide computeOptimumLocation and Default location, we dont give the user
+//A change to wreck our object, and we're free to change the implementation
+//without knock on to consumers of this method...
+
+function Circle(radius) {
+  this.radius = radius;
+  this.defaultLocation = { x: 0, y: 0 };
+  this.computeOptimumLocation = function () {};
+  this.draw = function () {
+    console.log("constructor draw circle...");
+    this.computeOptimumLocation();
+  };
 }
