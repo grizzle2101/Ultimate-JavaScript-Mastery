@@ -218,6 +218,7 @@ function Circle(radius) {
 //So carrying on from abstraction, our best way to abstract is to implment private
 // properties & methods.
 
+/*
 function Circle(radius) {
   this.radius = radius;
   //note - Closure determines what variables are going to be exposed to an inner function.
@@ -235,9 +236,44 @@ function Circle(radius) {
 }
 
 const testCircle = new Circle();
+*/
 
 //Take home - Use let instead of THIS to define private variables.
 //Closure dertermines which variables are exposed to an inner function.
 //Scope is temporary, but closure persists in memory.
 //Example - A variable to store the count of errors, is exposed to inner function
 // which reads lines in a file and attempts to sum, or increases error count.
+
+//Lecture 12 - Getters & Setters:
+//So Carrying on from the previous lecture, what if we want to read the default location?
+
+function Circle(radius) {
+  this.radius = radius;
+  let defaultLocation = { x: 0, y: 0 };
+
+  this.draw = function () {
+    console.log("draw circle...");
+  };
+
+  //Task 1 - Getter Function Property:
+  Object.defineProperty(this, "defaultLocation", {
+    get: function () {
+      return defaultLocation; //part of the closure of inner function.
+    },
+    set: function (value) {
+      if (!value.x || !value.y) throw new Error("Invalid Location."); //Added error handling
+      defaultLocation = value;
+    },
+  });
+}
+
+const testCircleTwo = new Circle(2);
+
+//getting default location
+console.log(testCircleTwo.defaultLocation);
+
+//setting default location:
+testCircleTwo.defaultLocation = { x: 22, y: 55 };
+console.log(testCircleTwo.defaultLocation);
+
+//Take home - use Object.defint property to define getters & setters.
