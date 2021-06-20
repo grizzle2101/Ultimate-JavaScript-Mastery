@@ -57,3 +57,36 @@ and a couple other methods, if none are provided it looks in the Prototype objec
 
 note - a Prototype is just a regular object.
 -every object has a Prototype, except the root base object.
+
+
+Lecture 3 - MultiLevel Inheritance:
+let myArray = [];
+
+We have all those handy methods available.
+-indexOf
+-push
+-reduce
+
+Where did they come from?
+myArray > arrayBase > objectBase
+This is MultiLevel inheritance in action.
+
+Check the Circle Object:
+If we call a circle object in chrome, we can see it inherits from the Circle object.
+
+-Constructor
+function Circle(radius) {
+}
+
+-Object creation
+const cirlce = new Circle(2);
+
+-Test in Browser.
+cirlce.prototype 
+This is the Circle Class!
+
+take home - objects created by a constructor, will have the same prototype
+All arrays created by the Array constructor, will also have the prototype.
+
+-Inheritance hierarchy
+circle > circleBase > objectBase
