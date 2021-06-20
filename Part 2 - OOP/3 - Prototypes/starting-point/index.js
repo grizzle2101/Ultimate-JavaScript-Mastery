@@ -46,9 +46,11 @@ Object.getPrototypeOf(person);
 //One thing to know is the contructor also has a prototype.
 //As we know functions are objects, so even constructors are objects!
 
+/*
 function Circle(radius) {
   this.radius = radius;
 }
+*/
 
 // Example - Contructor === base object prototype:
 let myProtype = Circle.prototype;
@@ -64,3 +66,58 @@ let array = [];
 console.log("Is Same object?", myProtype.prototype === array.prototype);
 
 //Take Home - Contructor prototype is same base oject.
+
+//Lecture 6 - Prototype V Instance Members:
+
+function Circle(radius) {
+  this.radius = radius;
+  /* moving method to prototype
+  this.draw = function () {
+    console.log("draw");
+  };
+  */
+  this.move = function () {
+    console.log("moving circle...");
+  };
+}
+
+const c1 = new Circle(1);
+const c2 = new Circle(2);
+
+console.log(c1);
+console.log(c2);
+
+//Scenario - Now if we have 1000 circles, we're going to have 1000 instances of
+//the draw method. This is a lot of wasted memory, whats the solution?
+// Using Prototypical inheritance, we can define this method in the prototype.
+
+//Task - set Draw on the Circle Prototype:
+Circle.prototype.draw = function () {
+  console.log("draw");
+  this.toString();
+};
+
+console.log(c1); //draw no longer visible on C1 Object
+c1.draw(); //but we still have access here.
+
+//Task - Override Methods:
+Circle.prototype.toString = function () {
+  console.log("Look at me im a Circle...", this.radius);
+};
+
+c1.toString();
+
+//Task - Prototype Memmbers invoking instance members:
+Circle.prototype.callSomething = function () {
+  this.move();
+  console.log("movement completed");
+};
+
+c1.callSomething();
+
+//Take Home
+//Prototype members are variables of function on the prototype, instance members
+//exist on the child object.
+// 1 - We can add Instance members to the prototype, less memory & duplication.
+// 2 - We can override prototype members with instance members.
+// 3 - Prototype members can access instance members, and vice versa.
