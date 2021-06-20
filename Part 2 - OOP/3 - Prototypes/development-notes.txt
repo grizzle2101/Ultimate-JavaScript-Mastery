@@ -23,3 +23,37 @@ Square {
 -Classical & Prototypical Inheritance
 As we know in JavaScript, we don't have classes so instead we have Prototypical Inheritance
 which is the subject for this section.
+
+
+
+Lecture 2 - Prototypes & Prototypical Inheritance:
+In the last lecture we talked about the Square & Circle using OOP, but if JavaScript
+we only have objects so how do we achieve the same?
+
+The Prototype (parent):
+function Shape(){}
+
+Child:
+function Circle(){}
+
+Example:
+IF we create a object in chrome browser like this...
+let x = {};
+let y = {};
+
+We can see the proto property, which contains a list of methods like Constructor,
+ToString etc.
+All objects in JavaScript inherit from a baseObject, which contains all the functions
+we use quite often. ObjectBase is the root, directly or indirectly of all objects.
+
+Object.getPrototypeOf(x) === Object.getPrototypeOf(y);
+returns true, meaning both objects have the same root aka base object.
+
+
+x.toString():
+How does toString get assigned to our X Object? The JavaScript engine looks for toString
+and a couple other methods, if none are provided it looks in the Prototype object.
+(object base).
+
+note - a Prototype is just a regular object.
+-every object has a Prototype, except the root base object.
