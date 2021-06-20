@@ -121,3 +121,18 @@ c1.callSomething();
 // 1 - We can add Instance members to the prototype, less memory & duplication.
 // 2 - We can override prototype members with instance members.
 // 3 - Prototype members can access instance members, and vice versa.
+
+//Lecture 7 - Iterating Instance and Prototype Members:
+//note - because we have object reference, any changes we make like adding new methods
+//are immediately available.
+
+console.log(Object.keys(c1)); // only returns instance members.
+
+//returns all members. Instance & Prototype
+for (const key in c1) {
+  console.log("key - ", key);
+}
+
+//check instance property
+console.log(c1.hasOwnProperty("radius"));
+console.log(c1.hasOwnProperty("draw")); // false, its on the prototype
