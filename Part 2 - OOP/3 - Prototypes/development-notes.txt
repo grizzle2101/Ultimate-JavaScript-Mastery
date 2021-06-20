@@ -1,0 +1,25 @@
+Section - Prototypes:
+Lecture 1 - Inheritance:
+Inheritance is one of the core concepts of OOP, that enables an object to take on
+propeties and methods of another object, and that makes it easy to reuse code 
+in different parts of the application.
+
+Parent Class
+Shape {
+    computeOptimumLocation()
+}
+
+Child Classes
+//Both Square & Cirle Inherit the common method from Shape
+Circle {
+    computeOptimumLocation()
+}
+
+
+Square {
+    computeOptimumLocation()
+}
+
+-Classical & Prototypical Inheritance
+As we know in JavaScript, we don't have classes so instead we have Prototypical Inheritance
+which is the subject for this section.
