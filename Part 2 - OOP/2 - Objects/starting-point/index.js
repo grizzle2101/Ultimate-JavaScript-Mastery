@@ -161,3 +161,20 @@ delete circle.location;
 delete circle["location"];
 
 //Take home - We can assign & remove properties at will.
+
+//Lecture 9 - Enumerating Properties:
+
+//Example 1 - Iterate over properties of an Object
+for (const key in circle) {
+  if (typeof circle[key] !== "function") console.log(key, " - ", circle[key]);
+}
+
+//Example 2 - Get All Keys:
+const keys = Object.keys(circle);
+
+console.log(keys);
+
+//Example 3 - Check for Property:
+if ("radius" in circle) {
+  console.log("Circle has a Radius!");
+}
