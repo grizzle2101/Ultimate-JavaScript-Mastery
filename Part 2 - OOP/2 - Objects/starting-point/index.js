@@ -53,10 +53,10 @@ another.draw();
 
 console.log(Circle.constructor());
 
-let x = {};
+//let x = {};
 //Even Empty Object literals have the same constructor property.
 //same as let x = new Object();
-console.log(x.constructor);
+//console.log(x.constructor);
 
 //We have a few other built in contructors.
 new String(); //same as '', "", ``
@@ -91,3 +91,52 @@ Circle.call(window, 1);
 
 //Take Home - Functions in JavaScript are Objects.
 //Parameters belong in a function, we PASS in agruments when invoked.
+
+//Lecture 7 - Value V Reference Types:
+//We have 2 categories of types, Value Types aka Primitives & Reference Types aka objectc.
+
+//Value Types:
+//-Number
+//-String
+//-Boolean
+//-Symbol
+//-Undefined
+//-null
+
+//Reference Types:
+//-Object
+//-Function
+//-Array
+
+//Example 1 - Primitive Copying
+//2 totally seperate variables
+let x = 10;
+let y = x;
+x.value = 20;
+console.log(x, " - ", y);
+
+//Example 2 - Reference Type Copying:
+//Reference the Same Object
+let z = { value: 10 };
+let w = z;
+z.value = 39;
+
+console.log(z, " - ", w);
+
+//Where Primitive copy the valyue, reference types copy the refernece to the same object.
+//This means when we edit the value, we edit it for both variables!
+
+//Example 3 - Function Usage:
+//let number = 10; //primitive
+let number = { value: 10 }; //reference
+
+function increase(number) {
+  //number++; //primitives - number is copied, but only exists within this funciton.
+  number.value++; //Reference Types - Can update a reference to Object, without returning.
+}
+
+increase(number);
+console.log(number);
+
+//Take home - Primitive are copied by their value, reference types are copied by
+//their reference.
