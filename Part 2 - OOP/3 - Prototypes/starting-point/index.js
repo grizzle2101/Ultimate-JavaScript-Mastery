@@ -136,3 +136,23 @@ for (const key in c1) {
 //check instance property
 console.log(c1.hasOwnProperty("radius"));
 console.log(c1.hasOwnProperty("draw")); // false, its on the prototype
+
+//Take home - use Object.keys to iterate over instance members.
+//use FOR IN loop to iterate over all members, instance & prototype.
+//check instance properties using .hasOwnProperty(<property>)
+
+//Lecture 8 - Avoid Extending Built-in Objects:
+//So in the future you might be attempted to create functions for existing objects.
+
+Array.prototype.shuffle = function () {
+  console.log("shuffle");
+};
+
+const array = [];
+array.shuffle();
+
+//Why is this not good?
+// DONT modify objects you don't own.
+// If the JavaScript developers or 3rd parties change this, you will waste DAYS
+// debugging issues when this happens.
+// Also it could have knock on effects if those methods are used internally or elsewhere.
