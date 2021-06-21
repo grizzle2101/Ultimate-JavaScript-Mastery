@@ -156,3 +156,83 @@ array.shuffle();
 // If the JavaScript developers or 3rd parties change this, you will waste DAYS
 // debugging issues when this happens.
 // Also it could have knock on effects if those methods are used internally or elsewhere.
+
+//Excercise 1 - StopWatch:
+//Taking the Stopwatch from earlier, we're going to move its methods to a Prototype.
+//Then we will run into a problem with the variables & scope.
+
+function StopWatch() {
+  let startTime,
+    endTime,
+    duration,
+    isStarted = 0;
+
+  Object.defineProperty(this, "duration", {
+    get: function () {
+      return duration;
+    },
+    set function(value) {
+      duration = value;
+    },
+  });
+
+  Object.defineProperty(this, "startTime", {
+    get: function () {
+      return startTime;
+    },
+  });
+
+  Object.defineProperty(this, "endTime", {
+    get: function () {
+      return endTime;
+    },
+  });
+
+  Object.defineProperty(this, "isStarted", {
+    get: function () {
+      return isStarted;
+    },
+  });
+}
+
+//Prototype Functions
+StopWatch.prototype.start = function () {
+  if (!this.isStarted) {
+    console.log("Start");
+    this.isStarted = !this.isStarted;
+    this.startTime = new Date();
+  } else {
+    throw new Error("Stopwatch already Started...");
+  }
+};
+
+StopWatch.prototype.stop = function () {
+  if (this.isStarted) {
+    console.log("Stop");
+    this.isStarted = !this.isStarted;
+
+    this.endTime = new Date();
+    const seconds = (this.endTime.getTime() - this.startTime.getTime()) / 1000;
+    this.duration += this.seconds;
+  } else {
+    throw new Error("Stopwatch already Stopped...");
+  }
+};
+
+StopWatch.prototype.reset = function () {
+  this.startTime = 0;
+  this.endTime = 0;
+  this.duration = 0;
+};
+
+const watch = new StopWatch();
+watch.start();
+
+//Take home - We got punked, this was a terrible idea!
+//We are only going to ever have 1 instance of the stopwatch, why would you need to
+//optimize this. In order to get this to work, we've exposed our stopwatch to call
+//kinds of state breaking bugs. Now the variables are accessible from outside,
+//and we've violated the whole point of abstraction, to make things simpler, and
+//not expose our complexity.
+
+//premature optimization is the root of all evils!
