@@ -1,0 +1,7 @@
+Section - ES6 Classes:
+----------------------
+Lecture 1 - ES6 Classes:
+------------------------
+Over the last few sections we learned about Objects & prototypical inheritance.
+Since ES6 there are much better ways to achieve the same result using some Syntactic sugar.
+
