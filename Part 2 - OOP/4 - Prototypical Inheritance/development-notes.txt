@@ -105,8 +105,48 @@ So sometimes we might run into a slight problem, where we inherit behavior from 
 parent class, but we want to slighly modify it for a given object type.
 This is where method overriding comes in handy.
 
+Task - Override Methods:
+extend(Square, Shape); //Inherit here
+
+Square.prototype.duplicate = function () {
+  Shape.prototype.duplicate.call(this); //Call Parent Version
+  console.log("duplicate Square"); //override Child Version
+};
 
 
+const s = new Square(44);
+s.duplicate(); //see new duplicate behavior
 
 note - This works because the JavaScript engine walks up the dependency tree, finds
 starting at the child object. Thus it finds our new implementation first.
+
+
+
+Lecture 6 - Polymorphism:
+So now that we have 2 objects inheriting from the same base class, we can begin to see
+the benefits of polymorphism.
+
+
+Example:
+We can create an array of shapes, and call duplicate, allowing each object to define
+its own implementation. This is really clean, and extensible way of coding.
+const shapes = [new Circle(), new Square()];
+
+for (let shape of shapes) {
+  shape.duplicate();
+}
+
+
+
+Non OO Way:
+The more shapes we want to create, the more usless code we have to write...
+for (let shape of shapes) {
+  if(shape.type === 'Circle')
+  duplicateCircle();
+
+  else if (shape.type === 'Square')
+  duplicateSquare();
+}
+
+Take home - When we encapsulate variables & functions into objects using inheritance,
+we can execute many behaviors from a single line of code.

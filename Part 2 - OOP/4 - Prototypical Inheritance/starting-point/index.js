@@ -102,7 +102,7 @@ function extend(Child, Parent) {
   Child.prototype = Object.create(Parent.prototype);
   Child.prototype.constructor = Parent;
 }
-
+/*
 function Square(size) {
   this.size = size;
 }
@@ -115,7 +115,6 @@ Square.prototype.duplicate = function () {
   //then reassign
   console.log("duplicate Square");
 };
-*/
 
 //Method 2 - Call Method on the Parent Object:
 Square.prototype.duplicate = function () {
@@ -125,3 +124,25 @@ Square.prototype.duplicate = function () {
 
 const s = new Square(44);
 s.duplicate(); //see new duplicate behavior
+*/
+
+//Lecture 6 - Polymorphism:
+function Square(size) {
+  this.size = size;
+}
+
+extend(Square, Shape);
+
+Circle.prototype.duplicate = function () {
+  console.log("duplicate circle");
+};
+
+Square.prototype.duplicate = function () {
+  console.log("duplicate square");
+};
+
+const shapes = [new Circle(), new Square()];
+
+for (let shape of shapes) {
+  shape.duplicate();
+}
