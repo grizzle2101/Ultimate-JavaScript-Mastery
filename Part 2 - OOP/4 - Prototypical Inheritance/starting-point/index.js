@@ -164,6 +164,13 @@ const canWalk = {
   },
 };
 
+//Task 5 - Introduce Behaviors for Goldfish:
+const canSwim = {
+  swim: function () {
+    console.log("swimming");
+  },
+};
+
 //Task 2 - Combine behaviors using object.assign:
 //const person = Object.assign({}, canEat, canWalk);
 //console.log("person object - ", person);
@@ -171,7 +178,7 @@ const canWalk = {
 //Task 3 - Create Person Object
 function Person() {}
 //Task 7 - Refactor - Use Mixin:
-mixin(Person.prototype, canEat, canSwim);
+mixin(Person.prototype, canEat, canWalk);
 //Object.assign(Person.prototype, canEat, canWalk); //copy behaviors to Person Prototype
 const person = new Person();
 
@@ -179,13 +186,6 @@ const person = new Person();
 console.log("person object - ", person);
 person.walk();
 person.eat();
-
-//Task 5 - Introduce Behaviors for Goldfish:
-const canSwim = {
-  swim: function () {
-    console.log("swimming");
-  },
-};
 
 function GoldFish() {}
 //Object.assign(GoldFish.prototype, canSwim, canEat);
@@ -209,3 +209,45 @@ function mixin(target, ...sources) {
 //classes' prototype.
 //-Create a mixin function to avoid duplicating this assignment
 //--use the ES6 REST operator to take in ALL additional arguments.
+
+//Excercise 1 - Prototypical Inheritance:
+//Create 2 objects HTMLElement(parent) & HTMLSelect(dropdown list).
+//We want a function click
+
+//Task 1 - Create Html Element & Test:
+function HtmlElement() {
+  this.click = function () {
+    console.log("click");
+  };
+}
+
+HtmlElement.prototype.focus = function () {
+  console.log("focus");
+};
+
+const element = new HtmlElement();
+console.log("HTML Element", element);
+element.click(); //on Child Class
+element.focus(); //on prototype
+
+//Task 2 - Create Select Element from HTML Element:
+function SelectElement(...items) {
+  this.items = items;
+  this.addItem = function (item) {
+    console.log("pushing - ", item);
+    this.items.push(item);
+  };
+}
+//SelectElement.prototype = Object.create(HtmlElement);
+SelectElement.prototype = new HtmlElement(); //Set to Instance of HTMLElement
+
+const select = new SelectElement([1, 2, 3]);
+console.log("---select item---");
+select.focus();
+select.click();
+select.addItem(3);
+console.log("select item -", select);
+
+//Take home - We've created simple inheritance of focus & click for HTML Element.
+//We've then passed these behaviors on to HTMLSelect Element, which has additional methods
+//plus the ones from HTMLElement AND the HTMLElement prototype method focus.
