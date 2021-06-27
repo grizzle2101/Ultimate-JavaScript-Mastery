@@ -63,3 +63,35 @@ Shape.call(this, color); - Passes the correct instance of THIS Obj.
 Take home:
 -Use Shape.call to modify the super constructor.
 
+
+
+
+Lecture 4 - Intermediate Function Inheritance:
+----------------------------------------------
+So lets start by fleshing out a new object, the Square. Its becoming apparent the
+more objects we create, the more configuration we're going to have to do e.g.
+
+Square.prototype = Object.create(Shape.prototype);
+Square.prototype.constructor = Square;
+
+How can we simplfy this? With an Intermediate function lets go.
+
+Task - Create Intermediate Function:
+function extend(Child, Parent) {
+  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype.constructor = Parent;
+}
+
+
+Task - Use Function:
+We can reduce the duplication to a single function call...
+Square.prototype = Object.create(Shape.prototype);
+Square.prototype.constructor = Square;
+
+like so...
+extend(Square, Shape);
+
+
+Take Home:
+Use an Intermediate Inheritance function to avoid duplicating constructor & prototype
+assignment.

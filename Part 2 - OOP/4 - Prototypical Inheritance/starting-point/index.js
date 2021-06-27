@@ -31,18 +31,14 @@ const square = new Square();
 console.log("Testing Circle Inheritance - ", circle);
 console.log("Testing Square Inheritance - ", square);
 
-function Square() {}
-
 //Lecture 2 - Resetting the Constructor:
 console.log("Reconstructed Circle - ", new Circle.constructor());
 //console.log("Shape Prototype - ", new Circle.prototype.constructor()); //return
 
 //Note - always set Constructor & Prototype togther.
-Circle.prototype = Object.create(Shape.prototype);
-Circle.prototype.constructor = Circle; //set constructor to correct function.
-
-Square.prototype = Object.create(Shape.prototype);
-Square.prototype.constructor = Square;
+//Circle.prototype = Object.create(Shape.prototype);
+//Circle.prototype.constructor = Circle; //set constructor to correct function.
+extend(Circle, Shape);
 
 //Test
 console.log(
@@ -74,3 +70,26 @@ function Circle(radius, color) {
   Shape.call(this, color);
   this.radius = radius;
 }
+
+//Lecture 4 - Intermediate Function Inheritance:
+function extend(Child, Parent) {
+  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype.constructor = Parent;
+}
+
+function Square(size) {
+  this.size = size;
+}
+
+extend(Square, Shape);
+//Square.prototype = Object.create(Shape.prototype);
+//Square.prototype.constructor = Square;
+
+const testSquare = new Square(10);
+console.log("Test Square - ", testSquare);
+
+//Task - Intermediate Function Inheritance
+//note we're using uppercase, expecting these to be Constructor Functions...
+
+//Testing Results:
+testSquare.draw();
