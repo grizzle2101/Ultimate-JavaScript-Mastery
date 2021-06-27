@@ -237,8 +237,12 @@ function SelectElement(...items) {
     console.log("pushing - ", item);
     this.items.push(item);
   };
+  this.render = function () {
+    console.log(`select='${this.items}'`);
+  };
 }
 //SelectElement.prototype = Object.create(HtmlElement);
+/*
 SelectElement.prototype = new HtmlElement(); //Set to Instance of HTMLElement
 
 const select = new SelectElement([1, 2, 3]);
@@ -247,7 +251,40 @@ select.focus();
 select.click();
 select.addItem(3);
 console.log("select item -", select);
+*/
 
 //Take home - We've created simple inheritance of focus & click for HTML Element.
 //We've then passed these behaviors on to HTMLSelect Element, which has additional methods
 //plus the ones from HTMLElement AND the HTMLElement prototype method focus.
+
+//Excercise 2 - Polymorphism:
+
+function extendClass(Parent, Child) {
+  //Inherits from Class & Prototype
+  Child.prototype = new Parent();
+  Child.prototype.constructor = Parent;
+}
+
+extendClass(HtmlElement, SelectElement);
+
+//Task - Create Image Element
+function ImageElement(src) {
+  this.src = src;
+  this.render = function () {
+    console.log(`img src=${this.src}`);
+  };
+}
+//Inherit from HTML Element
+ImageElement.prototype = new HtmlElement();
+ImageElement.prototype.constructor = HtmlElement;
+
+//Create Array of Dom Objects
+const mockDom = [
+  new SelectElement([1, 2, 2]),
+  new ImageElement("testImage.jpg"),
+];
+
+//render the DOM
+for (const d of mockDom) {
+  d.render();
+}
