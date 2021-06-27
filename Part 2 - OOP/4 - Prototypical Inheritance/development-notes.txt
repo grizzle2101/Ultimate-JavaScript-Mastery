@@ -27,3 +27,18 @@ prototype.
 
 In JavaScript we use Prototype Objects to encapsulate methods, then we create
 objects that point to the same prototype, achieving prototypical inheritance.
+
+
+Lecture 2 - Resetting the Constructor:
+--------------------------------------
+So there is a problem with our previous implementation. In a previous section we went
+over the constructor function, which returns the function used to create the object.
+Now that we've set the Circle prototype to shape, we lose the ability to create a
+plain circle object.
+
+In order for us to fix this, we'll see to reset the constructor function to return
+the shape base methods too.
+
+
+Note - Best Practice, whenever you reset the prototype of an Object, you should
+also reset its constructor.
