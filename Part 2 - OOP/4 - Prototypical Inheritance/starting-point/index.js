@@ -146,3 +146,66 @@ const shapes = [new Circle(), new Square()];
 for (let shape of shapes) {
   shape.duplicate();
 }
+
+//Lecture 8 - Mixins:
+//So carrying on from the theory lecture, lets compose some objects.
+
+//Task - create canEat & canWalk:
+const canEat = {
+  eat: function () {
+    this.hunger--;
+    console.log("eating");
+  },
+};
+
+const canWalk = {
+  walk: function () {
+    console.log("walking");
+  },
+};
+
+//Task 2 - Combine behaviors using object.assign:
+//const person = Object.assign({}, canEat, canWalk);
+//console.log("person object - ", person);
+
+//Task 3 - Create Person Object
+function Person() {}
+//Task 7 - Refactor - Use Mixin:
+mixin(Person.prototype, canEat, canSwim);
+//Object.assign(Person.prototype, canEat, canWalk); //copy behaviors to Person Prototype
+const person = new Person();
+
+//Task 4 - Use Person Object:
+console.log("person object - ", person);
+person.walk();
+person.eat();
+
+//Task 5 - Introduce Behaviors for Goldfish:
+const canSwim = {
+  swim: function () {
+    console.log("swimming");
+  },
+};
+
+function GoldFish() {}
+//Object.assign(GoldFish.prototype, canSwim, canEat);
+
+//Task 7 - Refactor - Use Mixin:
+mixin(GoldFish.prototype, canEat, canSwim);
+
+const goldfish = new GoldFish();
+console.log("goldfish object - ", goldfish);
+goldfish.swim();
+goldfish.eat();
+
+//Task 6 - Create Mixin:
+//Creating a Mixin will help us reduce duplication & simplify things.
+//rest operator, will allow  to pass unlimited arguments
+function mixin(target, ...sources) {
+  Object.assign(target, ...sources);
+}
+
+//Take home - Compose objects using Object.assign to assign methods to the target
+//classes' prototype.
+//-Create a mixin function to avoid duplicating this assignment
+//--use the ES6 REST operator to take in ALL additional arguments.
