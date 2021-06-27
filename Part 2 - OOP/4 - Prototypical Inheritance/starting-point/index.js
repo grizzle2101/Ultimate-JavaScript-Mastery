@@ -2,13 +2,16 @@
 //Carrying on from the previous section we had the Cirlce, and we learned
 //about using prototypes to add functions to the prototype.
 
+/*
 function Circle(radius) {
   this.radius = radius;
 }
+*/
 
 //Task - Create Shape Object to Contain reuseable methods.
-function Shape() {}
+//function Shape() {}
 
+/*
 Shape.prototype.draw = function () {
   console.log("draw");
 };
@@ -16,6 +19,7 @@ Shape.prototype.draw = function () {
 Shape.prototype.duplicate = function () {
   console.log("duplicate");
 };
+*/
 
 //How do we inherit from Shape? - Using Object.Create
 //Circle.prototype = Object.create(Shape.prototype);
@@ -45,3 +49,28 @@ console.log(
   "Revised Circle Constructor - ",
   new Circle.prototype.constructor()
 );
+
+//Lecture 3 - Calling the Super Contructor
+
+//Task - Modify Shape to take in Color.
+function Shape(color) {
+  this.color = color;
+}
+
+Shape.prototype.draw = function () {
+  console.log("draw");
+};
+
+Shape.prototype.duplicate = function () {
+  console.log("duplicate");
+};
+
+const testCircle = new Circle(22, "red");
+console.log("Checking Circle -", testCircle); //No Color... After modification, Color!
+
+//How do we call the Super Constructor?
+//Task - Set color - Using Shape.call and passing THIS obj.
+function Circle(radius, color) {
+  Shape.call(this, color);
+  this.radius = radius;
+}

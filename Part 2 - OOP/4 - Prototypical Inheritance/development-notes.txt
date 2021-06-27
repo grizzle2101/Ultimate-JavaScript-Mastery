@@ -42,3 +42,24 @@ the shape base methods too.
 
 Note - Best Practice, whenever you reset the prototype of an Object, you should
 also reset its constructor.
+
+
+Lecture 3 - Calling the Super Contructor:
+-----------------------------------------
+Now in this section we're going to complicate things a bit. Remember we have the Shape
+parent class, if we want to set a color on a given shape, lets see how that works
+when we try use the child classes like Circle.
+
+
+note - When setting properties on the super constructor, be careful with scope.
+When we new up a circle 3 things are done, an empty object is created, our object is 
+the arguments are passed, and the object is assigned to the return object.
+When we create the circle, we want to make sure the same instance of THIS is set on
+the prototype.
+
+Shape(color); - This sets color on the Global Window Obj.
+Shape.call(this, color); - Passes the correct instance of THIS Obj.
+
+Take home:
+-Use Shape.call to modify the super constructor.
+
