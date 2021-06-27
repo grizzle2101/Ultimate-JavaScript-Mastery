@@ -43,10 +43,10 @@ const sayGoodbye = function () {};
 //const s = new Square();
 
 // class declaration
-class Circle {}
+//class Circle {}
 
 // class expression
-const Square = class {};
+//const Square = class {};
 
 //Which approach is better declarations or expressions? Although hoisting is a nice
 //feature, it really is a sloppy code practice.
@@ -54,3 +54,51 @@ const Square = class {};
 //the code, we should not rely on hoisting as we can be working with Objects without
 //understanding the proper order in which it is used.
 // Note - Regarding ES6, use Class Declaration, is simpler and cleaner.
+
+//Lecture 3 - Static Methods:
+//In Classical OO, we have instance & static methods. Whats the difference?
+
+class Circle {
+  constructor(radius) {
+    this.radius = radius;
+  }
+
+  //Instance method
+  draw() {
+    console.log("draw");
+  }
+
+  // Static method
+  static parse(str) {
+    console.log("string - ", str);
+    const radius = JSON.parse(str).radius;
+    return new Circle(radius);
+  }
+}
+
+const circle = new Circle(2);
+console.log("circle - ", circle);
+
+//Static methods are available on the class itself, not the object instance.
+//We often use them to create utility functions, that are not for a specific object.
+circle.draw();
+
+//Task - Use Static Method:
+//circle.parse(); // is not available on the instance.
+
+const anotherCirlce = Circle.parse('{"radius": 1}'); //create object from JSON.
+console.log("another circle - ", anotherCirlce);
+
+//Take home - We use STATIC methods to create utility functions, that are not available
+//to the instance.
+
+//Another Example Math Classes, we do not new up MATH, we use static utility methods.
+Math.max(1, 2);
+
+class Math2 {
+  static absolute(value) {
+    return value++;
+  }
+}
+
+Math2.absolute(3);
