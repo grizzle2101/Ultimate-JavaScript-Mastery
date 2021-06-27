@@ -1,0 +1,29 @@
+Section - Prototypical Inheritance:
+-----------------------------------
+Lecture 1 - Creating your own prototypical inheritance:
+-------------------------------------------------------
+So how does Inheritance work in JavaScript? Say we have a Circle and Square
+class, and they both contain draw & duplicate methods.
+We want to add these methods to a Shape Object, then inherit to any other shapes.
+
+Task 1 - Create Shape Function
+function Shape() {}
+
+Task 2 - Add Methods to the Prototype of Shape (eg. ObjectBase)
+Shape.prototype.draw = function () {
+  console.log("draw");
+};
+
+Task 3 - Assign Circle & Square to the same ObjectBase.
+Circle.prototype = Object.create(Shape.prototype);
+
+Task 4 - Test
+We should have full access to the shape methods now.
+circle.draw()
+
+Take Home:
+Object.create(Shape.prototype) - returns an object, in this case the Shape 
+prototype.
+
+In JavaScript we use Prototype Objects to encapsulate methods, then we create
+objects that point to the same prototype, achieving prototypical inheritance.
