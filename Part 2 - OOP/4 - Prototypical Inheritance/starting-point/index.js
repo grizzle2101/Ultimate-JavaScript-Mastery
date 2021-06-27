@@ -72,6 +72,7 @@ function Circle(radius, color) {
 }
 
 //Lecture 4 - Intermediate Function Inheritance:
+/*
 function extend(Child, Parent) {
   Child.prototype = Object.create(Parent.prototype);
   Child.prototype.constructor = Parent;
@@ -93,3 +94,34 @@ console.log("Test Square - ", testSquare);
 
 //Testing Results:
 testSquare.draw();
+*/
+
+//Lecture 5 - Method Overriding:
+
+function extend(Child, Parent) {
+  Child.prototype = Object.create(Parent.prototype);
+  Child.prototype.constructor = Parent;
+}
+
+function Square(size) {
+  this.size = size;
+}
+
+extend(Square, Shape); //Inherit here
+
+//method 1 - Call Method on the Child Object:
+/*
+Square.prototype.duplicate = function () {
+  //then reassign
+  console.log("duplicate Square");
+};
+*/
+
+//Method 2 - Call Method on the Parent Object:
+Square.prototype.duplicate = function () {
+  Shape.prototype.duplicate.call(this); //Call Parent Version
+  console.log("duplicate Square"); //Call Child Version
+};
+
+const s = new Square(44);
+s.duplicate(); //see new duplicate behavior

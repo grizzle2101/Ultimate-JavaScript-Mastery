@@ -95,3 +95,18 @@ extend(Square, Shape);
 Take Home:
 Use an Intermediate Inheritance function to avoid duplicating constructor & prototype
 assignment.
+
+
+
+
+Lecture 5 - Method Overriding:
+------------------------------
+So sometimes we might run into a slight problem, where we inherit behavior from a 
+parent class, but we want to slighly modify it for a given object type.
+This is where method overriding comes in handy.
+
+
+
+
+note - This works because the JavaScript engine walks up the dependency tree, finds
+starting at the child object. Thus it finds our new implementation first.
