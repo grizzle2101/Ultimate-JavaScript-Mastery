@@ -150,3 +150,50 @@ for (let shape of shapes) {
 
 Take home - When we encapsulate variables & functions into objects using inheritance,
 we can execute many behaviors from a single line of code.
+
+
+
+Lecture 7 - When to Use Inheritance:
+So now that we've seen inheritance & polymorphism in action, a few words of caution about
+its usage in JavaScript.
+It can make your source code complex and fragile, so dont use it for the sake of it.
+KEEP IT SIMPLE! Create simple objects, if you see repetive behavior or duplication then
+maybe look at encapsulating those features in a generic object.
+There is another technique called Composition (strategy pattern) which might be more suitable.
+
+
+Animal Parent
+  eat()
+  walk()
+
+Person.walk - makes sense
+Dog.walk - that also makes sense
+
+What if tomorrow we want to support a goldfish
+Goldfish.walk() - we broke the application...
+
+The solttion, breaking up the higherarchy.
+
+Animal Parent
+Eat()
+
+Mammal & Fish Sub classes
+Fish
+swim()
+
+Person & dog derive from Mammal
+Goldfish derives from Fish, which has swim.
+
+This can quickly become a maintenance mess, as we might spend ages figuring out
+where certain methods should be, and whats common between certain animals.
+
+note - AVOID creating inheritance hierarchies. ONLY ever 1 level over inheritance.
+note - Favour composition over Inheritance.
+
+We're going to encapsulate behaviors like canWalk, canEat, canSwim and objects
+can be composed to have the correct behaviors either ahead of time or @ runtime.
+
+Peson - canWalk & canEat
+Goldfish - canEat & canSwim
+In the next section we're going to see how composition can be achieved in JavaScript
+using mixins.
