@@ -1,3 +1,5 @@
+'use strict';
+
 //Lecture 1 - ES6 Classes:
 //So now we know all about Objects & prototypical inheritance, lets see some ES6 classes
 //That add some Syntactic sugar to make thigs look more like C# and Java.
@@ -58,6 +60,7 @@ const sayGoodbye = function () {};
 //Lecture 3 - Static Methods:
 //In Classical OO, we have instance & static methods. Whats the difference?
 
+/*
 class Circle {
   constructor(radius) {
     this.radius = radius;
@@ -75,19 +78,20 @@ class Circle {
     return new Circle(radius);
   }
 }
+*/
 
-const circle = new Circle(2);
-console.log("circle - ", circle);
+//const circle = new Circle(2);
+//console.log("circle - ", circle);
 
 //Static methods are available on the class itself, not the object instance.
 //We often use them to create utility functions, that are not for a specific object.
-circle.draw();
+//circle.draw();
 
 //Task - Use Static Method:
 //circle.parse(); // is not available on the instance.
 
-const anotherCirlce = Circle.parse('{"radius": 1}'); //create object from JSON.
-console.log("another circle - ", anotherCirlce);
+//const anotherCirlce = Circle.parse('{"radius": 1}'); //create object from JSON.
+//console.log("another circle - ", anotherCirlce);
 
 //Take home - We use STATIC methods to create utility functions, that are not available
 //to the instance.
@@ -102,3 +106,46 @@ class Math2 {
 }
 
 Math2.absolute(3);
+
+
+//Lecture 4 - The This Keyword:
+//In this section we're going to test out THIS with the ES6 Classes.
+
+/*
+const Circle = function() {
+  this.draw = function() {
+    console.log('this - ', this); //refers to circle object
+  }
+}
+*/
+//const c = new Circle();
+
+// Method Call on an Object - This refers to circle object
+//c.draw();
+
+//const draw = c.draw;
+//console.log('draw - ', draw);
+
+// Function call - standalone method, this refers to Global Window.
+//draw();
+
+
+//Task - Set us to Strict Mode 'use strict';
+// JavaScript has a strict mode, where it will turn warnings into exceptions and change the behavior of THIS.
+// Using STRICT MODE will stop us from modifying the global window object, therefore its undefined.
+
+
+//What if we use Class & Strict Mode?
+class Circle {
+  draw() {
+    console.log('this - ', this);
+  }
+}
+
+const c = new Circle();
+c.draw(); // method call
+
+const draw = c.draw;
+draw(); // function call - undefined
+
+//Take home - the body of our classes are executed in STRICT MODE. This prevents us from modifying the Global window object.
