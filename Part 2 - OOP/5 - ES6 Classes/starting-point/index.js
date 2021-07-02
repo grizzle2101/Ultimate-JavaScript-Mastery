@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 //Lecture 1 - ES6 Classes:
 //So now we know all about Objects & prototypical inheritance, lets see some ES6 classes
@@ -107,7 +107,6 @@ class Math2 {
 
 Math2.absolute(3);
 
-
 //Lecture 4 - The This Keyword:
 //In this section we're going to test out THIS with the ES6 Classes.
 
@@ -129,16 +128,15 @@ const Circle = function() {
 // Function call - standalone method, this refers to Global Window.
 //draw();
 
-
 //Task - Set us to Strict Mode 'use strict';
 // JavaScript has a strict mode, where it will turn warnings into exceptions and change the behavior of THIS.
 // Using STRICT MODE will stop us from modifying the global window object, therefore its undefined.
 
-
 //What if we use Class & Strict Mode?
+/*
 class Circle {
   draw() {
-    console.log('this - ', this);
+    console.log("this - ", this);
   }
 }
 
@@ -147,5 +145,30 @@ c.draw(); // method call
 
 const draw = c.draw;
 draw(); // function call - undefined
-
+*/
 //Take home - the body of our classes are executed in STRICT MODE. This prevents us from modifying the Global window object.
+
+//Lecture 5 - Private Members using Symbols:
+//In this section we're going to look at 3 methods for creating private members.
+//-1. _radius eg convention approach,
+//-2. Symbols
+//-3. maps
+const _radius = Symbol(); //Using symbols to create random value for variable names.
+const _draw = Symbol();
+
+class Circle {
+  constructor(radius) {
+    this[_radius] = radius;
+  }
+  //computed property name
+  [_draw]() {}
+}
+const c = new Circle(2);
+
+const key = Object.getOwnPropertySymbols(c)[0];
+
+//Test - Accessing Private Variable
+console.log("accesing your private value - ", c[key]);
+
+//Test - Showing Computer Function on Prototype
+console.log("circle private methods", Circle.prototype);

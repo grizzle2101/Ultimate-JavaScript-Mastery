@@ -5,3 +5,58 @@ Lecture 1 - ES6 Classes:
 Over the last few sections we learned about Objects & prototypical inheritance.
 Since ES6 there are much better ways to achieve the same result using some Syntactic sugar.
 
+
+
+Lecture 5 - Private Members Using Symbols:
+------------------------------------------
+So in previous lectures we said abstraction is one of the core concepts of OO programming.
+IF abstraction is hiding the implmentation detail, how do we do that using ES6?
+
+There are several approaches to make variables & methods private.
+
+Method 1 - Using underscore Convention:
+The worst approach by far is using an underscore to let consumers know this variable
+is meant to be private. It does not stop them from using anything, just a suggestion.
+
+class Circle {
+  constructor(radius) {
+    this._radius = radius; //Should let consumers know this is 'Private'.
+  }
+}
+
+
+Method 2 - Using Symbols:
+Symbols in ES6 are a way to create random values, which we can use as variable names.
+Using this and the bracket notation, we can make a value inaccessible.
+
+const _radius = Symbol();
+
+class Circle {
+  constructor(radius) {
+    this[_symbol] = radius; //Should let consumers know this is 'Private'.
+  }
+}
+
+Does this work?
+Well Yes and No.
+Simply put, we cannot access c._radius anymore, but there may be a way to hack it.
+
+Hacking into our values...
+const c = new Circle(2);
+const key = Object.getOwnPropertySymbols(c)[0];
+console.log("accesing your private value - ", c[key]);
+
+
+Making a Function Private:
+Same again, if we define a function name as a symbol, we can then use computed getOwnPropertySymbols
+names. The expression will be evaluated @ runtime, and assigned as the name of our method.
+
+const _draw = Symbol();
+
+class Circle {
+  constructor(radius) {
+    this[_radius] = radius;
+  }
+  //computed property name
+  [_draw]() {}
+}
