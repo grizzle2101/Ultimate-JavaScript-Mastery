@@ -153,6 +153,7 @@ draw(); // function call - undefined
 //-1. _radius eg convention approach,
 //-2. Symbols
 //-3. maps
+/*
 const _radius = Symbol(); //Using symbols to create random value for variable names.
 const _draw = Symbol();
 
@@ -172,3 +173,37 @@ console.log("accesing your private value - ", c[key]);
 
 //Test - Showing Computer Function on Prototype
 console.log("circle private methods", Circle.prototype);
+*/
+
+//Lecture 6 - Private Members using WeakMaps:
+// Carrying on from the precvious section, we're going to look at using WeakMaps to
+// achieve private members.
+
+const _radius = new WeakMap(); //private radius variable
+const _move = new WeakMap(); //private move method
+const _privateProperties = new WeakMap(); //merge private properties
+
+class Circle {
+  constructor(radius) {
+    _radius.set(this, radius);
+    _move.set(this, () => {
+      console.log("move", this);
+    });
+    //set merged properites
+    _privateProperties.set(this, {
+      radius: radius,
+      move: () => {},
+    });
+  }
+  draw() {
+    _move.get(this)(); //call private function
+    console.log("accessing private radius - ", _radius.get(this)); //use private variable
+    console.log(
+      "accessing private properties - ",
+      _privateProperties.get(this).radius
+    ); //use merged private data...
+  }
+}
+
+const c = new Circle(2);
+c.draw();

@@ -60,3 +60,86 @@ class Circle {
   //computed property name
   [_draw]() {}
 }
+
+
+
+Lecture 6 - Private Members Using WeakMaps:
+-------------------------------------------
+So carrying on from before we're going to use the 3rd method of creating private members,
+the WeakMap. WeakMaps are basically a dictionary where keys are objects, 
+and values anything (values or functions).
+
+note
+Weak maps are so called because the keys are weak, if there are no references to these keys
+it will be garbage collected @ runtime.
+
+
+Step 1 - Decare WeakMaps:
+const _radius = new WeakMap(); 
+const _move = new WeakMap();
+
+
+Step 2 - Set WeakMaps using THIS & the variable/method.
+class Circle {
+  constructor(radius) {
+    _radius.set(this, radius);
+    _move.set(this, () => {
+      console.log("move", this);
+    });
+  }
+  Step 3 - Use Private Variable or Function:
+  draw() {
+    _move.get(this)(); //call private function
+    console.log(_radius.get(this));
+  }
+}
+
+Test - Check we cannot access the variables externally:
+const c = new Circle(2);
+c.draw();
+
+
+
+
+
+But we can still access the WeakMap?
+Yes for now, but in an upcoming lecture we're going to go over modules.
+And there it will make sense
+
+
+But How can we access This?
+The arrow function passes a reference to the THIS object its currently inside.
+    _move.set(this, function () {
+      console.log("move", this);
+    });
+
+becomes
+    _move.set(this, () => {
+      console.log("move", this);
+    });
+
+Why not use a single WeakMap for all properties:
+-Create WeakMap
+const _privateProperties = new WeakMap();
+
+-Set Values
+  constructor(radius) {
+    _privateProperties.set(this, {
+      radius: radius,
+      move: () => {},
+    });
+
+
+-Get Values
+  draw() {
+    console.log(
+      "accessing private properties - ",
+      _privateProperties.get(this).radius
+    );
+  }
+
+Which is better? Individual WeakMaps or combined?
+Up to personal preference, if you dislike the _privateProperties.get(this).radius
+method for accessing Individual values, favour single use WeakMaps.
+
+Take home - WeakMaps & upcoming modules are the best way to hide our private members.
