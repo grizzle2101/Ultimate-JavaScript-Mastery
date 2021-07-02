@@ -143,3 +143,33 @@ Up to personal preference, if you dislike the _privateProperties.get(this).radiu
 method for accessing Individual values, favour single use WeakMaps.
 
 Take home - WeakMaps & upcoming modules are the best way to hide our private members.
+
+
+
+Lecture 7 - Getters and Setters:
+--------------------------------
+So when it comes to exposing our priviate members we have a few options.
+
+method 1 - Function:
+Not ideal, as we dont have the c.radius functionality anymore.
+  getRadius() {
+    return _radius.get(this);
+  }
+
+
+method 2 - object.defineproperty:
+We could use defineProperty to create the property & setters/getters.
+This will work, but is really convoluted.
+Object.defineProperty(this, "radius", { get: function () {} });
+
+method 3 - ES6 Getter: (prefferred option)
+  get radius() {
+    return _radius.get(this);
+  }
+
+testing
+console.log(c.radius);
+c.radius = 22;
+console.log(c.radius);
+
+Take home - implmenting getters & setters is far easier with ES6 classes.

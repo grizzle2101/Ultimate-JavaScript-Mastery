@@ -179,6 +179,7 @@ console.log("circle private methods", Circle.prototype);
 // Carrying on from the precvious section, we're going to look at using WeakMaps to
 // achieve private members.
 
+/*
 const _radius = new WeakMap(); //private radius variable
 const _move = new WeakMap(); //private move method
 const _privateProperties = new WeakMap(); //merge private properties
@@ -207,3 +208,38 @@ class Circle {
 
 const c = new Circle(2);
 c.draw();
+
+*/
+
+//Lecture 7 - Getters and Setters:
+const _radius = new WeakMap();
+
+class Circle {
+  constructor(radius) {
+    _radius.set(this, radius);
+
+    //method 2 - object.defineproperty - convoluted
+    //Object.defineProperty(this, "radius", { get: function () {} });
+  }
+  //method 3 - ES6 getter (prefferred method):
+  get radius() {
+    return _radius.get(this);
+  }
+  //Setter
+  set radius(value) {
+    if (value <= 0) throw new Error("invalid radius");
+    _radius.set(this, value);
+  }
+
+  /*method 1 - return via method - not ideal, want to call directly c.radius
+  getRadius() {
+    return _radius.get(this);
+  }
+  */
+}
+
+//testing
+const c = new Circle(11);
+console.log(c.radius);
+c.radius = 22;
+console.log(c.radius);
