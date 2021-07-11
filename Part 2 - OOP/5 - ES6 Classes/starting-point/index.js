@@ -308,3 +308,72 @@ c.move();
 // Then if none is provided, will look in the prototype or Parent class.
 
 //super.move(); to access methods in the parent class.
+
+//Excercise - Stack:
+//Implment a stack using ES6 classes. Push, to add things to the stack, pull to remove.
+
+const _count = new WeakMap();
+const _items = new WeakMap();
+
+class Stack {
+  count = 0;
+  items = [];
+
+  constructor() {
+    _count.set(this, 0);
+    _items.set(this, []);
+  }
+
+  get count() {
+    return _count.get(this);
+  }
+
+  push(item) {
+    let count = _count.get(this);
+    _count.set(this, count + 1);
+    _items.get(this).push(item);
+  }
+
+  pop() {
+    if (_items.get(this).length === 0) {
+      throw new exception("Cannot pop empty stack.");
+    }
+    return _items.get(this).pop();
+  }
+
+  peek(index) {
+    return _items.get(this)[index];
+  }
+
+  display() {
+    console.log(_items.get(this));
+  }
+}
+
+const items = new Stack();
+//Testing Premature popping:
+try {
+  console.log("pop - ", items.pop());
+} catch (ex) {
+  console.log("Pop recovery - ", ex);
+}
+
+items.push(1);
+items.push(2);
+items.push(3);
+
+//Testing - private members - count
+console.log("count - ", c.count);
+
+//Testing valid popping:
+//console.log("pop - ", items.pop());
+
+items.display();
+console.log("peek - ", items.peek(1));
+
+//Take home:
+//note - JavaScript doesn't really support private methods, have to interact with weakmaps,
+// then encapsulate all this in a module, so the consume can't interact with them.
+//-Use WeakMaps to make private members
+//-try/catch exceptions
+//-getters & setters
