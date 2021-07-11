@@ -248,6 +248,7 @@ console.log(c.radius);
 //Lecture 8 - Inheritance:
 //Now that we learned all about classes in ES6, lets see how we can implement inheritance.
 
+/*
 class Shape {
   //Task 2 - Constructor Usage
   constructor(color) {
@@ -276,8 +277,34 @@ const c = new Circle("green", 2);
 c.move();
 c.draw();
 console.log("C - ", c);
+*/
 
 //See Parent & Child Constructor properties.
 
 //Take home - use EXTENDS to inherit from a class.
 // When overriding constructors, you must use the super keyword to provide for base class.
+
+//Lecture 9 - Method Overriding:
+//So im some scenarios, are base classes might change implementation. We can achieve
+//this using method overriding.
+
+class Shape {
+  move() {
+    console.log("move");
+  }
+}
+
+class Circle extends Shape {
+  move() {
+    super.move();
+    console.log("circle move");
+  }
+}
+
+const c = new Circle();
+c.move();
+
+//Take home - JavaScript engine looks for the implementation in the Child class first.
+// Then if none is provided, will look in the prototype or Parent class.
+
+//super.move(); to access methods in the parent class.
