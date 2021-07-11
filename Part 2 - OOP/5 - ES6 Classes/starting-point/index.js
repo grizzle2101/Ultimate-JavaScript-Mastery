@@ -212,6 +212,7 @@ c.draw();
 */
 
 //Lecture 7 - Getters and Setters:
+/*
 const _radius = new WeakMap();
 
 class Circle {
@@ -235,7 +236,6 @@ class Circle {
   getRadius() {
     return _radius.get(this);
   }
-  */
 }
 
 //testing
@@ -243,3 +243,41 @@ const c = new Circle(11);
 console.log(c.radius);
 c.radius = 22;
 console.log(c.radius);
+*/
+
+//Lecture 8 - Inheritance:
+//Now that we learned all about classes in ES6, lets see how we can implement inheritance.
+
+class Shape {
+  //Task 2 - Constructor Usage
+  constructor(color) {
+    this.color = color;
+  }
+  move() {
+    console.log("move");
+  }
+}
+
+//Task 1 - Inherit using Extends.
+class Circle extends Shape {
+  //problem - using a constructor when parent class has one...
+  constructor(color, radius) {
+    super(color);
+    this.radius = radius;
+  }
+
+  draw() {
+    console.log("draw");
+  }
+}
+
+//Testing
+const c = new Circle("green", 2);
+c.move();
+c.draw();
+console.log("C - ", c);
+
+//See Parent & Child Constructor properties.
+
+//Take home - use EXTENDS to inherit from a class.
+// When overriding constructors, you must use the super keyword to provide for base class.
