@@ -1,0 +1,29 @@
+Section - ES6 Tooling:
+----------------------
+Lecture 1 - Modules:
+----------------------
+Eveerything we've done so far has been inside a the index.js file, we're going to look
+at building modules using ES6.
+
+file = modules
+
+Benefits of Modules:
+-maintainability
+-reuse
+-abstract
+
+
+So lets get migrate our Circle class into a module. Remember in the previous lectures
+we used a weak map to simulate private properties? Now if we place this in a module,
+the weakmap will not be available, so we're finishing off securing our properties.
+
+In ES5 there was no concept of Modules, so some developers came up with some different
+ways to mock this using different module formats like.
+
+-AMD - Asynchoronous Module Definition (Browsers)
+-CommonJS - NodeJs
+-UMD - Universal Module Deinition (browser & node)
+-ES6 - Browsers
+
+In the next sections, we're going to look at CommonJS and ES6 Modules, so we don't have
+to worry about AMD or UMD, unless your working on some legacy codebase.
