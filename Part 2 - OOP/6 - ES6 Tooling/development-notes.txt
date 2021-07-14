@@ -27,3 +27,40 @@ ways to mock this using different module formats like.
 
 In the next sections, we're going to look at CommonJS and ES6 Modules, so we don't have
 to worry about AMD or UMD, unless your working on some legacy codebase.
+
+
+Lecture 2 - CommonJs:
+---------------------
+So in this lecture, we're going to go over the CommonJS module format used in node.
+
+
+1 - Run terminal in the starting_point folder and type node index.js
+
+
+note:
+A note when designing modules, Things that are highly related should go together.
+We want to achieve cohesion and consistency.
+
+2 - Create a Circle.js file and place the circle weakmap & class.
+
+another note:
+everything we put in a module is private, unless we explicitly export it.
+
+
+3 - export:
+so in CommonJS we use the module.exports object, and assign it to the value we wish
+to export aka the Circle.
+
+module.exports = Circle; 
+
+
+4 - Import Module:
+Again using the CommonJS approach, we use require('./circle') in our index.js.
+
+
+5 - Run Code:
+Because we're using Common.JS, we need to run this via node to get the same message.
+node index.js
+
+Take Home:
+In Common.JS we use module.exports & require to import & export modules.
