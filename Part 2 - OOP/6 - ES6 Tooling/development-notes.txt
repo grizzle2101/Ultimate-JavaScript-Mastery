@@ -90,3 +90,20 @@ import { Circle } from "./circle.js";
 Take Home:
 Webpack or any build tool will automate the imports for us, but in general
 it as simple as make a class exportable, then import module for consumption.
+
+
+
+Lecture 4 - ES6 Tooling:
+------------------------
+When building applications for the browser, there are some key tools to understand.
+-transpiler
+-bundler
+
+
+-transpiler - translator & compiler:
+We give is modern ES6 JavaScript code, and a tool like babel will transform
+it to ES5, ES4 and so on.
+
+-bundler - will help us bundle all our JavaScript into a single file.
+The most popular being webpack. It will remove all whitespace, minify and uglify(shorten names)
+as well as combine it into a single file for us.
