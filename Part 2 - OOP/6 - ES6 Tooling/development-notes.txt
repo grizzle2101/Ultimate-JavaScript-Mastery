@@ -64,3 +64,29 @@ node index.js
 
 Take Home:
 In Common.JS we use module.exports & require to import & export modules.
+
+
+
+Lecture 3 - ES6 Modules:
+------------------------
+So much like the previous tutorial we want to extract the circle to a new
+file, and only expose the public members.
+
+1 - Export class
+2 - Import class
+
+note:
+We run into some errors when we run this, 'Cannot use import statement outside
+a module'.
+Because we're not using webpack to build the files correctly for us, we have
+to do a small workaround.
+
+-adding type = module to index.html - we tell chrome treat our js as a module.
+<script type="module" src="index.js"></script>
+
+-Specify JS file extension.
+import { Circle } from "./circle.js";
+
+Take Home:
+Webpack or any build tool will automate the imports for us, but in general
+it as simple as make a class exportable, then import module for consumption.
