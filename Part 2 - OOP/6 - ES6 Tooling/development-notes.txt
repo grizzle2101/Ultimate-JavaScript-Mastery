@@ -107,3 +107,41 @@ it to ES5, ES4 and so on.
 -bundler - will help us bundle all our JavaScript into a single file.
 The most popular being webpack. It will remove all whitespace, minify and uglify(shorten names)
 as well as combine it into a single file for us.
+
+
+
+Lecture 5 - Babel:
+------------------
+
+
+1 - create directory
+
+2 - initialize NPM project
+npm init --yes
+
+3 - install babel
+npm install i babel-cli@6.26.0 babel-core@6.26.0 babel-preset-env@1.6.1 --save-dev
+
+cli - just provides some useful tools for us.
+core - is the core bable executeable, needed to do the job.
+preset env - combines all the preset features and packages for ES6.
+
+4 - Create some basic code to be transpiled.
+const x = 1;
+
+5 - Update package.json with babel command. & create build directory.
+  "scripts": {
+   "babel":"babel --presents env index.js -o build/index.js"
+  },
+
+
+6 - Use NPM RUN babel to compile code.
+npm run babel
+
+7 - review compiled code.
+const x = 1;
+
+
+note:
+In our current implementation, we can see we're only building index.js. In a more complicated app we
+will be building hundreds of classes, this is where something webpack comes into play.
