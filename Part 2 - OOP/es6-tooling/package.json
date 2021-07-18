@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "babel":"babel --presents env index.js -o build/index.js"
+    "babel": "babel --presents env index.js -o build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@webpack-cli/generators": "^2.2.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",

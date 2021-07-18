@@ -145,3 +145,40 @@ const x = 1;
 note:
 In our current implementation, we can see we're only building index.js. In a more complicated app we
 will be building hundreds of classes, this is where something webpack comes into play.
+
+
+
+Lecture 6 - Webpack:
+--------------------
+So what we did in the previous lecture is purely to help your understanding, we should not use babel
+like that in our day to day work flow.
+
+We have 2 modules, index and circle.js.
+
+
+1 - install webpack
+npm install -g  webpack-cli
+
+
+2 - install & configure webpack on project folder
+npm install -g  webpack-cli@2.0.14
+
+
+3 - run build
+npm run build
+
+
+4 - update webpack to watch:
+By changing how npm build run works, we can tell webpack to watch our files for changes, and rebuild
+automatically. So when we add some code, the build output changes and whats on live server does too.
+  "scripts": {
+    "build": "webpack -w",
+
+  
+changes:
+console.log('Changes!')
+
+
+take home:
+we've used webpack and babel to create a real world workflow and project structure to support
+OO JavaScript!
